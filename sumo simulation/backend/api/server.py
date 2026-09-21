@@ -10,7 +10,7 @@ from typing import Dict, List, Any, Optional
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import HTMLResponse, FileResponse
+from fastapi.responses import HTMLResponse, FileResponse, Response
 from pydantic import BaseModel, Field
 
 # Ensure project root is in python path
@@ -329,6 +329,7 @@ def _simulation_update_payload(step_res: Optional[Dict[str, Any]] = None) -> Dic
     congested_edges = [
         {
             'id': edge['edge_id'],
+            'road_name': edge.get('road_name', dt_graph.get_edge_road_name(edge['edge_id'])),
             'congestion_ratio': edge['congestion_ratio'],
             'vehicle_count': edge['vehicle_count'],
             'mean_speed': round(edge['mean_speed'], 2),
@@ -455,6 +456,7 @@ def get_network():
     for edge_id, meta in dt_graph.edge_metadata.items():
         edges_payload.append({
             'id': edge_id,
+            'road_name': meta.get('road_name') or dt_graph.get_edge_road_name(edge_id),
             'from': meta['from_node'],
             'to': meta['to_node'],
             'length': meta['length'],
@@ -563,10 +565,11 @@ async def inject_incident(req: IncidentRequest):
     if not success:
         raise HTTPException(status_code=400, detail=f"Invalid edge_id or SUMO not running: {req.edge_id}")
 
+    road_name = dt_graph.get_edge_road_name(req.edge_id)
     sim_time = sumo_mgr.get_snapshot().get("sim_time", 0.0)
     log_sim_event(
         "INCIDENT_INJECTED",
-        f"Bottleneck/accident injected on edge {req.edge_id}. Speed reduced to {req.speed_factor * 100:.0f}%.",
+        f"Bottleneck/accident injected on {road_name} (edge {req.edge_id}). Speed reduced to {req.speed_factor * 100:.0f}%.",
         severity="warning",
         sim_time=sim_time
     )
@@ -574,7 +577,7 @@ async def inject_incident(req: IncidentRequest):
     global latest_route_result
     if active_vrp_req:
         await run_active_vrp_solver_async()
-    return {"status": "incident_injected", "edge_id": req.edge_id, "updated_route": latest_route_result}
+    return {"status": "incident_injected", "edge_id": req.edge_id, "road_name": road_name, "updated_route": latest_route_result}
 
 @app.post("/api/incident/clear")
 async def clear_incident(req: ClearIncidentRequest):
@@ -582,10 +585,11 @@ async def clear_incident(req: ClearIncidentRequest):
     if not success:
         raise HTTPException(status_code=400, detail=f"No active incident found for: {req.edge_id}")
 
+    road_name = dt_graph.get_edge_road_name(req.edge_id)
     sim_time = sumo_mgr.get_snapshot().get("sim_time", 0.0)
     log_sim_event(
         "INCIDENT_CLEARED",
-        f"Incident cleared on edge {req.edge_id}. Road capacity and speed restored.",
+        f"Incident cleared on {road_name} (edge {req.edge_id}). Road capacity and speed restored.",
         severity="success",
         sim_time=sim_time
     )
@@ -593,7 +597,7 @@ async def clear_incident(req: ClearIncidentRequest):
     global latest_route_result
     if active_vrp_req:
         await run_active_vrp_solver_async()
-    return {"status": "incident_cleared", "edge_id": req.edge_id, "updated_route": latest_route_result}
+    return {"status": "incident_cleared", "edge_id": req.edge_id, "road_name": road_name, "updated_route": latest_route_result}
 
 @app.post("/api/network/resolve-node")
 def resolve_nearest_node(req: ResolveNodeRequest):
@@ -880,6 +884,17 @@ def get_benchmark_history(limit: int = 50):
         "history": experiment_db.get_history(limit=limit),
     }
 
+@app.get("/api/benchmark/export/csv")
+def export_benchmark_csv(experiment_id: str):
+    csv_content = experiment_db.export_experiment_csv(experiment_id)
+    if not csv_content:
+        raise HTTPException(status_code=404, detail=f"Experiment {experiment_id} not found or has no runs")
+    return Response(
+        content=csv_content,
+        media_type="text/csv",
+        headers={"Content-Disposition": f"attachment; filename={experiment_id}.csv"}
+    )
+
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await ws_manager.connect(websocket)
@@ -927,9 +942,13 @@ async def simulation_loop():
                                 res_dict = updated_res.to_dict()
                                 res_dict["reroute_meta"] = meta
                                 latest_route_result = res_dict
+                                old_roads = meta.get("old_roads", [])
+                                new_roads = meta.get("new_roads", [])
+                                old_str = " ➔ ".join(old_roads[:3]) if old_roads else "Previous route"
+                                new_str = " ➔ ".join(new_roads[:3]) if new_roads else "New route"
                                 log_sim_event(
                                     "REROUTE_TRIGGERED",
-                                    f"Dynamic reroute triggered: {action}. {meta.get('reason', '')}",
+                                    f"Dynamic reroute: {action}. Rerouted from {old_str} to {new_str}. {meta.get('reason', '')}",
                                     severity="warning",
                                     sim_time=sim_time
                                 )

@@ -100,13 +100,16 @@ class SumoManager:
                 road_id = traci.vehicle.getRoadID(veh_id)
                 veh_type = traci.vehicle.getTypeID(veh_id)
 
+                road_name = self.dt_graph.get_edge_road_name(road_id) if hasattr(self.dt_graph, 'get_edge_road_name') else road_id
+
                 vehicles.append({
                     'id': veh_id,
                     'type': veh_type,
                     'x': round(x, 2),
                     'y': round(y, 2),
                     'speed': round(speed, 2),
-                    'road_id': road_id
+                    'road_id': road_id,
+                    'road_name': road_name
                 })
             except traci.TraCIException:
                 continue

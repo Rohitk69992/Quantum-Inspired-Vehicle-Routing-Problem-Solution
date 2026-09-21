@@ -352,6 +352,7 @@
                                         <em>Select a solution above to view route details.</em>
                                     </div>
                                     <button id="btn-project-solution" class="btn btn-outline btn-block btn-sm" style="margin-top: 8px;">🗺️ Project Onto Operator Canvas</button>
+                                    <button id="btn-export-csv" class="btn btn-outline btn-block btn-sm" style="margin-top: 6px;">📥 Export Benchmark CSV (Roads & Edges)</button>
                                 </div>
                             </div>
                         </div>
@@ -457,10 +458,11 @@
                                         <th>Travel Time (s)</th>
                                         <th>Runtime (ms)</th>
                                         <th>Feasible</th>
+                                        <th>Export</th>
                                     </tr>
                                 </thead>
                                 <tbody id="experiment-history-body">
-                                    <tr><td colspan="9" class="none-text">No stored experiment history yet. Run a benchmark suite to persist results.</td></tr>
+                                    <tr><td colspan="10" class="none-text">No stored experiment history yet. Run a benchmark suite to persist results.</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -551,6 +553,7 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
+                                                <th>Road Name (OSM)</th>
                                                 <th>SUMO Road ID</th>
                                                 <th>From Junction</th>
                                                 <th>To Junction</th>
@@ -561,7 +564,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="dijkstra-segments-body">
-                                            <tr><td colspan="8" class="none-text">Run algorithm to view segment calculations.</td></tr>
+                                            <tr><td colspan="9" class="none-text">Run algorithm to view segment calculations.</td></tr>
                                         </tbody>
                                     </table>
                                 </div>

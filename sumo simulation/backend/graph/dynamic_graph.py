@@ -3,6 +3,8 @@ import networkx as nx
 import sumolib
 from typing import Dict, List, Tuple, Any, Optional
 
+from backend.graph.road_resolver import RoadMetadataResolver, set_road_resolver, get_road_resolver
+
 class DynamicTrafficGraph:
     """
     Graph Model G(t) = (V, E, W(t)) representing transportation network topology
@@ -16,6 +18,8 @@ class DynamicTrafficGraph:
         self.edge_metadata: Dict[str, Dict[str, Any]] = {}
         self.net_file_path: Optional[str] = None
         self.incidents: Dict[str, float] = {}  # edge_id -> multiplier or extra weight penalty
+        self.road_resolver: RoadMetadataResolver = RoadMetadataResolver(self)
+        set_road_resolver(self.road_resolver)
 
     def get_undirected_graph(self) -> nx.Graph:
         if self._undirected_graph is None or self._undirected_graph.number_of_nodes() != self.graph.number_of_nodes():
@@ -58,8 +62,12 @@ class DynamicTrafficGraph:
             shape = [(float(p[0]), float(p[1])) for p in edge.getShape()]
             free_flow_tt = length / max(speed, 0.1)
 
+            raw_name = edge.getName()
+            road_name = raw_name.strip() if raw_name and raw_name.strip() else "Unnamed road"
+
             edge_data = {
                 'edge_id': edge_id,
+                'road_name': road_name,
                 'from_node': from_node,
                 'to_node': to_node,
                 'length': length,
@@ -77,6 +85,17 @@ class DynamicTrafficGraph:
 
             self.edge_metadata[edge_id] = edge_data
             self.graph.add_edge(from_node, to_node, key=edge_id, **edge_data)
+
+        self.road_resolver.set_graph(self)
+        set_road_resolver(self.road_resolver)
+
+    def get_edge_road_name(self, edge_id: str) -> str:
+        """Returns the human-readable street name for a SUMO edge."""
+        return self.road_resolver.get_road_name(edge_id)
+
+    def resolve_edge_metadata(self, edge_id: str) -> Dict[str, Any]:
+        """Resolves complete authoritative metadata for a SUMO edge."""
+        return self.road_resolver.resolve_edge(edge_id)
 
     def set_incident(self, edge_id: str, penalty_multiplier: float = 100.0) -> bool:
         """
