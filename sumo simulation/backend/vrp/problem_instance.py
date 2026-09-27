@@ -69,6 +69,9 @@ class FleetVehicleRoute:
     total_travel_time: float
     total_distance: float
     load_used: float
+    road_path: List[str] = field(default_factory=list)
+    display_route: List[str] = field(default_factory=list)
+    route_steps: List[Dict[str, Any]] = field(default_factory=list)
     capacity_utilization_pct: float = 0.0
     initial_load: float = 0.0
     delivered_load: float = 0.0
@@ -108,6 +111,9 @@ class FleetVehicleRoute:
             "visit_sequence": self.visit_sequence,
             "node_path": self.node_path,
             "edge_path": self.edge_path,
+            "road_path": self.road_path,
+            "display_route": self.display_route,
+            "route_steps": self.route_steps,
             "geometry": self.geometry,
             "total_cost": round(self.total_cost, 2),
             "total_travel_time": round(self.total_travel_time, 2),
@@ -296,6 +302,9 @@ class AlgorithmResult:
     constraint_violations: List[str]
     computation_time_ms: float
     math_proof: Dict[str, Any]
+    road_path: List[str] = field(default_factory=list)
+    display_route: List[str] = field(default_factory=list)
+    route_steps: List[Dict[str, Any]] = field(default_factory=list)
     solver_details: Dict[str, Any] = field(default_factory=dict)
     fleet_routes: List[FleetVehicleRoute] = field(default_factory=list)
     error: Optional[str] = None
@@ -317,6 +326,9 @@ class AlgorithmResult:
             "visit_sequence": self.visit_sequence,
             "node_path": self.node_path,
             "edge_path": self.edge_path,
+            "road_path": self.road_path,
+            "display_route": self.display_route,
+            "route_steps": self.route_steps,
             "total_cost": round(self.total_cost, 2),
             "total_travel_time": round(self.total_travel_time, 2),
             "total_distance": round(self.total_distance, 2),

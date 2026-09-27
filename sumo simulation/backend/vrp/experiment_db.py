@@ -407,3 +407,98 @@ class ExperimentDatabase:
                 }
 
         return stats
+
+    def export_experiment_csv(self, experiment_id: str) -> str:
+        """
+        Exports experiment benchmark runs to CSV string with both edge_id and real road_name metadata.
+        """
+        import io
+        import csv
+
+        details = self.get_experiment_details(experiment_id)
+        if not details:
+            return ""
+
+        output = io.StringIO()
+        writer = csv.writer(output)
+        writer.writerow([
+            "experiment_id",
+            "algorithm",
+            "seed",
+            "feasible",
+            "total_cost",
+            "total_travel_time",
+            "total_distance",
+            "runtime_ms",
+            "vehicle_id",
+            "is_active",
+            "customer_sequence",
+            "display_route",
+            "road_path",
+            "edge_path",
+            "route_step_count"
+        ])
+
+        for run in details.get("runs", []):
+            algo = run.get("algorithm")
+            seed = run.get("seed")
+            feasible = run.get("feasible")
+            total_cost = run.get("total_cost")
+            total_time = run.get("total_travel_time")
+            total_dist = run.get("total_distance")
+            runtime = run.get("runtime_ms")
+            sol = run.get("solution", {})
+            fleet_routes = sol.get("fleet_routes", [])
+
+            if fleet_routes:
+                for fr in fleet_routes:
+                    v_id = fr.get("vehicle_id")
+                    is_active = fr.get("is_active", True)
+                    cust_seq = " -> ".join(fr.get("visit_sequence", []))
+                    display_route = " -> ".join(fr.get("display_route", []))
+                    road_path = " | ".join(fr.get("road_path", []))
+                    edge_path = " | ".join(fr.get("edge_path", []))
+                    steps_count = len(fr.get("route_steps", []))
+
+                    writer.writerow([
+                        experiment_id,
+                        algo,
+                        seed,
+                        feasible,
+                        total_cost,
+                        total_time,
+                        total_dist,
+                        runtime,
+                        v_id,
+                        is_active,
+                        cust_seq,
+                        display_route,
+                        road_path,
+                        edge_path,
+                        steps_count
+                    ])
+            else:
+                display_route = " -> ".join(sol.get("display_route", []))
+                road_path = " | ".join(sol.get("road_path", []))
+                edge_path = " | ".join(sol.get("edge_path", []))
+                steps_count = len(sol.get("route_steps", []))
+                cust_seq = " -> ".join(sol.get("visit_sequence", []))
+                writer.writerow([
+                    experiment_id,
+                    algo,
+                    seed,
+                    feasible,
+                    total_cost,
+                    total_time,
+                    total_dist,
+                    runtime,
+                    "V1",
+                    True,
+                    cust_seq,
+                    display_route,
+                    road_path,
+                    edge_path,
+                    steps_count
+                ])
+
+        return output.getvalue()

@@ -34,7 +34,11 @@ class DynamicRerouter:
         if not current_result or not current_result.success:
             # Re-solve if current result was invalid
             new_res = solver_fn(problem)
-            return "GLOBAL_REOPTIMIZATION", new_res, {"reason": "Initial route invalid or missing"}
+            return "GLOBAL_REOPTIMIZATION", new_res, {
+                "reason": "Initial route invalid or missing",
+                "old_roads": [],
+                "new_roads": getattr(new_res, "display_route", []) or [],
+            }
 
         # Check if any edge in current route is affected by an incident
         route_edges = set(current_result.edge_path)
@@ -53,6 +57,8 @@ class DynamicRerouter:
             return "GLOBAL_REOPTIMIZATION", new_res, {
                 "reason": "Road blockage rendered current customer sequence physically unviable",
                 "affected_incidents": affected_incidents,
+                "old_roads": getattr(current_result, "display_route", []) or [],
+                "new_roads": getattr(new_res, "display_route", []) or [],
             }
 
         prev_cost = max(current_result.total_cost, 0.1)
@@ -71,6 +77,8 @@ class DynamicRerouter:
                     "cost_increase_pct": round(cost_increase_pct, 1),
                     "old_sequence": current_result.visit_sequence,
                     "new_sequence": solver_res.visit_sequence,
+                    "old_roads": getattr(current_result, "display_route", []) or [],
+                    "new_roads": getattr(solver_res, "display_route", []) or [],
                 }
             else:
                 # Keep customer sequence, update physical road path
@@ -78,9 +86,13 @@ class DynamicRerouter:
                     "reason": "Customer sequence remains optimal, recalculated physical road path around congestion",
                     "affected_incidents": affected_incidents,
                     "cost_increase_pct": round(cost_increase_pct, 1),
+                    "old_roads": getattr(current_result, "display_route", []) or [],
+                    "new_roads": getattr(re_eval_res, "display_route", []) or [],
                 }
 
         return "NO_CHANGE", re_eval_res, {
             "reason": "Route unaffected by traffic changes",
             "cost_increase_pct": round(cost_increase_pct, 1),
+            "old_roads": getattr(current_result, "display_route", []) or [],
+            "new_roads": getattr(re_eval_res, "display_route", []) or [],
         }

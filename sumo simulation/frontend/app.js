@@ -165,6 +165,17 @@ class TrafficApp {
             selectInspectSolution.addEventListener('change', () => this.updateInspectedSolutionDetails());
         }
 
+        const btnExportCsv = document.getElementById('btn-export-csv');
+        if (btnExportCsv) {
+            btnExportCsv.addEventListener('click', () => {
+                if (this.currentExperimentId) {
+                    window.location.href = `/api/benchmark/export/csv?experiment_id=${this.currentExperimentId}`;
+                } else {
+                    alert('Please run a benchmark suite first to generate an experiment before exporting CSV.');
+                }
+            });
+        }
+
         // Incident buttons
         document.getElementById('btn-inject-incident').addEventListener('click', () => this.injectIncident());
         document.getElementById('btn-clear-incident').addEventListener('click', () => this.clearIncident());
@@ -381,7 +392,8 @@ class TrafficApp {
             this.networkData.edges.forEach(e => {
                 const opt = document.createElement('option');
                 opt.value = e.id;
-                opt.textContent = `Edge ${e.id} (${e.from} ➔ ${e.to}, ${Math.round(e.length)}m)`;
+                const roadName = e.road_name ? `${e.road_name}` : 'Unnamed road';
+                opt.textContent = `${roadName} (Edge ${e.id}, ${Math.round(e.length)}m)`;
                 incSelect.appendChild(opt);
             });
         }
@@ -633,6 +645,13 @@ class TrafficApp {
                         return nodeLabels[c] || `Node ${c}`;
                     }).join(' ') || 'No orders assigned';
 
+                    const roadPathDisplay = (fr.display_route && fr.display_route.length > 0)
+                        ? fr.display_route.join(' ➔ ')
+                        : 'Direct / Unnamed road';
+                    const edgePathDisplay = (fr.edge_path && fr.edge_path.length > 0)
+                        ? fr.edge_path.join(' ➔ ')
+                        : 'No edges recorded';
+
                     return `
                         <div class="fleet-route-item" style="border-left: 4px solid ${vColor}; padding: 10px; margin-bottom: 8px; background: #0d1117; border-radius: 6px;">
                             <div class="v-head" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; font-weight: 700;">
@@ -642,9 +661,16 @@ class TrafficApp {
                             <div style="font-size: 11px; color: var(--accent-cyan); margin-bottom: 6px;">
                                 <strong>Assigned Orders:</strong> ${assignedNames}
                             </div>
+                            <div style="margin-bottom: 6px; font-size: 11px; color: #38bdf8; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); padding: 5px 8px; border-radius: 4px;">
+                                <strong>🛣️ Planned Road Route:</strong> ${roadPathDisplay}
+                            </div>
                             <div class="route-guidance-steps" style="font-size: 11px; line-height: 1.45; color: var(--text-primary); background: #090d16; padding: 8px; border-radius: 4px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 4px;">
                                 ${steps.map(st => `<div class="guidance-step">${st}</div>`).join('')}
                             </div>
+                            <details style="margin-top: 6px; font-size: 10px; color: #9ca3af; background: rgba(0,0,0,0.25); border-radius: 4px; padding: 4px 8px; border: 1px solid rgba(255,255,255,0.05);">
+                                <summary style="cursor: pointer; font-weight: 600; color: #94a3b8;">🔍 Raw SUMO Edge IDs (${(fr.edge_path || []).length} edges)</summary>
+                                <div style="font-family: monospace; word-break: break-all; margin-top: 4px; color: #cbd5e1; max-height: 80px; overflow-y: auto;">${edgePathDisplay}</div>
+                            </details>
                             <div style="color: var(--text-secondary); font-size: 10px; margin-top: 6px; display: flex; justify-content: space-between;">
                                 <span>Travel Time: <strong>${(fr.total_travel_time || 0).toFixed(1)}s</strong></span>
                                 <span>Total Distance: <strong>${(fr.total_distance || 0).toFixed(1)}m</strong></span>
@@ -654,13 +680,24 @@ class TrafficApp {
                 }).join('');
             } else if (data.visit_sequence) {
                 frList.classList.remove('hidden');
+                const singleRoadDisplay = (data.display_route && data.display_route.length > 0)
+                    ? data.display_route.join(' ➔ ')
+                    : 'Direct / Unnamed road';
+                const singleEdgeDisplay = (data.edge_path && data.edge_path.length > 0)
+                    ? data.edge_path.join(' ➔ ')
+                    : 'No edges recorded';
                 frContainer.innerHTML = `
-                    <div class="fleet-route-item" style="border-left: 4px solid #3b82f6;">
-                        <div class="v-head">
-                            <span style="color: #3b82f6;">Vehicle V1</span>
-                            <span>Cap: ${capV}</span>
+                    <div class="fleet-route-item" style="border-left: 4px solid #3b82f6; padding: 10px; background: #0d1117; border-radius: 6px;">
+                        <div class="v-head" style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span style="color: #3b82f6; font-weight: 700;">Vehicle V1</span>
+                            <span class="badge badge-info">Cap: ${capV}</span>
                         </div>
-                        <div>Sequence: <code>${data.visit_sequence.join(' ➔ ')}</code></div>
+                        <div style="font-size: 11px; margin-bottom: 4px;">Sequence: <code>${data.visit_sequence.join(' ➔ ')}</code></div>
+                        <div style="font-size: 11px; color: #38bdf8; margin-bottom: 6px;"><strong>🛣️ Planned Road Route:</strong> ${singleRoadDisplay}</div>
+                        <details style="font-size: 10px; color: #9ca3af; background: rgba(0,0,0,0.25); border-radius: 4px; padding: 4px 8px;">
+                            <summary style="cursor: pointer; color: #94a3b8;">🔍 Raw SUMO Edge IDs (${(data.edge_path || []).length} edges)</summary>
+                            <div style="font-family: monospace; word-break: break-all; margin-top: 4px; color: #cbd5e1;">${singleEdgeDisplay}</div>
+                        </details>
                     </div>
                 `;
             } else {
@@ -821,8 +858,22 @@ class TrafficApp {
         }
 
         if (seqEl) {
-            const seqStr = res.fleet_routes ? res.fleet_routes.map(r => `${r.vehicle_id}: [${r.visit_sequence.join('➔')}]`).join(' | ') : (res.visit_sequence ? res.visit_sequence.join(' ➔ ') : '-');
+            let seqStr = '-';
+            if (res.fleet_routes && res.fleet_routes.length > 0) {
+                seqStr = res.fleet_routes.map(r => {
+                    const custPart = r.visit_sequence ? r.visit_sequence.join('➔') : '';
+                    const roadPart = r.display_route && r.display_route.length > 0 ? ` (${r.display_route.slice(0, 3).join('➔')}${r.display_route.length > 3 ? '...' : ''})` : '';
+                    return `${r.vehicle_id}: [${custPart}]${roadPart}`;
+                }).join(' | ');
+            } else if (res.display_route && res.display_route.length > 0) {
+                seqStr = res.display_route.join(' ➔ ');
+            } else if (res.visit_sequence) {
+                seqStr = res.visit_sequence.join(' ➔ ');
+            }
             seqEl.innerText = seqStr;
+            if (res.display_route && res.display_route.length > 0) {
+                seqEl.title = `Roads: ${res.display_route.join(' ➔ ')}`;
+            }
         }
 
         if (costEl) costEl.innerText = res.total_cost ? res.total_cost.toFixed(2) : '-';
@@ -845,17 +896,22 @@ class TrafficApp {
             return;
         }
 
+        const roadStr = (res.display_route && res.display_route.length > 0)
+            ? res.display_route.join(' ➔ ')
+            : (res.edge_path ? res.edge_path.slice(0, 4).join(' ➔ ') : '-');
+
         summaryEl.innerHTML = `
-            Time: <strong>${(res.total_travel_time || 0).toFixed(1)}s</strong> • 
+            <div style="font-size: 11px; color: #38bdf8; margin-bottom: 4px;"><strong>🛣️ Road Route:</strong> ${roadStr}</div>
+            <div>Time: <strong>${(res.total_travel_time || 0).toFixed(1)}s</strong> • 
             Dist: <strong>${(res.total_distance || 0).toFixed(1)}m</strong> • 
-            Speed: <strong>${(res.average_speed_ms || 0).toFixed(1)}m/s</strong>
+            Speed: <strong>${(res.average_speed_ms || 0).toFixed(1)}m/s</strong></div>
         `;
 
         const bnecks = res.bottlenecks || [];
         if (bnecks.length === 0) {
             alertsEl.innerHTML = '<span style="color: var(--accent-green); font-size: 11px;">✓ Clear Road Flow</span>';
         } else {
-            alertsEl.innerHTML = bnecks.map(b => `<span class="route-alert incident">⚠️ Edge ${b.edge_id}</span>`).join('');
+            alertsEl.innerHTML = bnecks.map(b => `<span class="route-alert incident">⚠️ ${b.road_name || 'Edge ' + b.edge_id} (${b.edge_id})</span>`).join('');
         }
     }
 
@@ -882,7 +938,7 @@ class TrafficApp {
         tbody.replaceChildren();
 
         if (!Array.isArray(segments) || segments.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="8" class="none-text">No segment calculation data available.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="9" class="none-text">No segment calculation data available.</td></tr>';
             return;
         }
 
@@ -890,6 +946,7 @@ class TrafficApp {
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>${idx + 1}</td>
+                <td><span style="color: #38bdf8; font-weight: 600;">${seg.road_name || 'Unnamed road'}</span></td>
                 <td><strong>${seg.edge_id}</strong></td>
                 <td>${seg.from_node}</td>
                 <td>${seg.to_node}</td>
@@ -1086,6 +1143,7 @@ class TrafficApp {
                 if (data.fairness_check && fairnessText) {
                     fairnessText.innerHTML = `Snapshot timestamp: <strong>t = ${data.fairness_check.frozen_snapshot_timestamp}s</strong> | Identical Graph Weights: <strong>✓ Verified</strong> | Total Demands: <strong>${data.fairness_check.total_package_demand} pkgs across ${data.fairness_check.customer_count} customers</strong> | Fleet: <strong>${data.fairness_check.vehicle_count} vehicles</strong>.`;
                 }
+                this.currentExperimentId = data.experiment_id;
                 this.benchmarkRuns = data.runs || [];
                 if (data.statistics) {
                     this.renderBenchmarkStatsTable(data.statistics);
@@ -1371,7 +1429,12 @@ class TrafficApp {
             </div>
             <div style="margin-bottom: 4px;">
                 <strong>Dispatched Vehicles (${activeRoutes.length}):</strong>
-                ${activeRoutes.map(vr => `<span class="badge badge-info" style="margin-right: 4px;">${vr.vehicle_id}: ${vr.assigned_customers.join(' → ')} (Load: ${vr.initial_load}/${vr.capacity})</span>`).join('')}
+                ${activeRoutes.map(vr => `
+                    <div style="margin-top: 4px; padding: 4px 6px; background: rgba(255,255,255,0.02); border-radius: 4px; border: 1px solid rgba(255,255,255,0.06);">
+                        <span class="badge badge-info" style="margin-right: 4px;">${vr.vehicle_id}: ${vr.assigned_customers ? vr.assigned_customers.join(' → ') : ''} (Load: ${vr.initial_load || 0}/${vr.capacity || 0})</span>
+                        <div style="font-size: 10px; color: #38bdf8; margin-top: 2px;">🛣️ <strong>Roads:</strong> ${vr.display_route && vr.display_route.length > 0 ? vr.display_route.join(' ➔ ') : 'Direct'}</div>
+                    </div>
+                `).join('')}
             </div>
             <div>
                 <strong>Standby Fleet (${standbyRoutes.length}):</strong>
@@ -1474,7 +1537,7 @@ class TrafficApp {
                 const tbody = document.getElementById('experiment-history-body');
                 if (!tbody) return;
                 if (data.history.length === 0) {
-                    tbody.innerHTML = '<tr><td colspan="9" class="none-text">No stored experiment history yet. Run a benchmark suite to persist results.</td></tr>';
+                    tbody.innerHTML = '<tr><td colspan="10" class="none-text">No stored experiment history yet. Run a benchmark suite to persist results.</td></tr>';
                     return;
                 }
 
@@ -1489,6 +1552,7 @@ class TrafficApp {
                         <td>${row.total_travel_time ? row.total_travel_time.toFixed(1) : 0.0} s</td>
                         <td>${row.runtime_ms ? row.runtime_ms.toFixed(1) : 0.0} ms</td>
                         <td>${row.feasible ? '<span class="highlight-green">✓ Yes</span>' : '<span class="highlight-red">❌ No</span>'}</td>
+                        <td><a href="/api/benchmark/export/csv?experiment_id=${row.experiment_id}" class="btn btn-outline btn-xs" target="_blank" style="padding: 2px 6px; font-size: 10px; color: #38bdf8;">📥 CSV</a></td>
                     </tr>
                 `).join('');
             }
@@ -1563,8 +1627,10 @@ class TrafficApp {
 
         ul.innerHTML = '';
         this.activeIncidents.forEach(id => {
+            const edgeObj = this.networkData?.edges?.find(e => e.id === id);
+            const roadName = edgeObj?.road_name || 'Unnamed road';
             const li = document.createElement('li');
-            li.innerHTML = `⚠️ <strong>Edge ${id}</strong> (Blocked)`;
+            li.innerHTML = `⚠️ <strong>${roadName}</strong> (Edge ${id}) - Blocked`;
             ul.appendChild(li);
         });
     }
@@ -1626,6 +1692,28 @@ class TrafficApp {
             this.panX = sx - this.dragStartX;
             this.panY = sy - this.dragStartY;
             this.draw();
+            return;
+        }
+
+        const hoverInfo = document.getElementById('hover-info');
+        if (hoverInfo && !this.pickMode) {
+            let foundVehicle = null;
+            if (this.vehicles && this.vehicles.length > 0) {
+                for (const v of this.vehicles) {
+                    const vx = this.toScreenX(v.x);
+                    const vy = this.toScreenY(v.y);
+                    const dist = Math.hypot(vx - sx, vy - sy);
+                    if (dist < 12) {
+                        foundVehicle = v;
+                        break;
+                    }
+                }
+            }
+            if (foundVehicle) {
+                hoverInfo.innerHTML = `🚚 <strong>Vehicle ${foundVehicle.id}</strong> | Current Road: <strong style="color: #38bdf8;">${foundVehicle.road_name || 'Unnamed road'}</strong> (Edge: <code>${foundVehicle.road_id}</code>) | Speed: <strong>${foundVehicle.speed} m/s</strong>`;
+            } else {
+                hoverInfo.innerHTML = `Click map to select depot/customers or inspect road traffic`;
+            }
         }
     }
 

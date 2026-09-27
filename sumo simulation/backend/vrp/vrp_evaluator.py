@@ -5,6 +5,7 @@ import networkx as nx
 from typing import Any, Dict, List, Optional, Tuple
 
 from backend.vrp.problem_instance import ProblemInstance, AlgorithmResult, FleetVehicleRoute, VehicleConfig
+from backend.graph.road_resolver import get_road_resolver
 
 
 class VRPEvaluator:
@@ -90,10 +91,17 @@ class VRPEvaluator:
             total_time += tt
             total_cost += w
 
+            road_name = edge_data.get("road_name")
+            if not road_name and hasattr(dt_graph, "road_resolver"):
+                road_name = dt_graph.road_resolver.get_road_name(edge_id)
+            elif not road_name:
+                road_name = "Unnamed road"
+
             segment_calcs.append({
                 "from_node": curr_u,
                 "to_node": curr_v,
                 "edge_id": edge_id,
+                "road_name": road_name,
                 "length_m": round(length, 2),
                 "speed_limit_ms": round(speed, 2),
                 "congestion_ratio": round(cong, 3),
@@ -103,6 +111,7 @@ class VRPEvaluator:
             if cong > 0.3 or edge_id in dt_graph.incidents:
                 bottlenecks.append({
                     "edge_id": edge_id,
+                    "road_name": road_name,
                     "congestion_ratio": cong,
                     "is_incident": edge_id in dt_graph.incidents,
                 })
@@ -182,6 +191,9 @@ class VRPEvaluator:
                     visit_sequence=[problem.origin, problem.origin],
                     node_path=[problem.origin],
                     edge_path=[],
+                    road_path=[],
+                    display_route=[],
+                    route_steps=[],
                     geometry=unused_geom,
                     total_cost=0.0,
                     total_travel_time=0.0,
@@ -265,6 +277,9 @@ class VRPEvaluator:
                     cum_dist += d
                     cum_time += t
 
+                    resolver = problem.graph.road_resolver if hasattr(problem.graph, "road_resolver") else get_road_resolver(problem.graph)
+                    leg_road_path, leg_display_route, leg_route_steps = resolver.resolve_edge_path(leg_edges)
+
                     v_legs.append({
                         "from_node": u_node,
                         "to_node": v_node,
@@ -273,6 +288,9 @@ class VRPEvaluator:
                         "distance_m": round(d, 2),
                         "node_path": leg_nodes,
                         "edge_path": leg_edges,
+                        "road_path": leg_road_path,
+                        "display_route": leg_display_route,
+                        "route_steps": leg_route_steps,
                         "geometry": leg_geom,
                         "is_return_to_depot": (v_node == problem.origin),
                     })
@@ -291,12 +309,14 @@ class VRPEvaluator:
                     v_seg_calcs.extend(seg_calcs)
                     v_bottlenecks.extend(b_necks)
 
+                    via_roads = f" via {' ➔ '.join(leg_display_route)}" if leg_display_route else ""
+
                     if v_node == problem.origin:
                         op_steps.append({
                             "step": step_counter,
                             "type": "return",
                             "node": problem.origin,
-                            "action": f"Return to Depot '{problem.origin}' with 0 remaining packages. Tour completed.",
+                            "action": f"Return{via_roads} to Depot '{problem.origin}' with 0 remaining packages. Tour completed.",
                             "delivered": 0.0,
                             "remaining": 0.0,
                             "cumulative_distance_m": round(cum_dist, 2),
@@ -309,7 +329,7 @@ class VRPEvaluator:
                             "step": step_counter,
                             "type": "delivery",
                             "node": v_node,
-                            "action": f"Deliver {pkg_delivered:.1f} pkg(s) at Customer '{v_node}' (Remaining on board: {curr_load:.1f} pkgs).",
+                            "action": f"Travel{via_roads} ➔ Deliver {pkg_delivered:.1f} pkg(s) at Customer '{v_node}' (Remaining on board: {curr_load:.1f} pkgs).",
                             "delivered": pkg_delivered,
                             "remaining": round(curr_load, 2),
                             "cumulative_distance_m": round(cum_dist, 2),
@@ -322,6 +342,9 @@ class VRPEvaluator:
                     is_feasible = False
                     break
 
+            resolver = problem.graph.road_resolver if hasattr(problem.graph, "road_resolver") else get_road_resolver(problem.graph)
+            v_road_path, v_display_route, v_route_steps = resolver.resolve_edge_path(v_edges)
+
             fleet_route = FleetVehicleRoute(
                 vehicle_id=v_config.vehicle_id,
                 capacity=v_config.capacity,
@@ -329,6 +352,9 @@ class VRPEvaluator:
                 visit_sequence=visit_seq,
                 node_path=v_nodes,
                 edge_path=v_edges,
+                road_path=v_road_path,
+                display_route=v_display_route,
+                route_steps=v_route_steps,
                 geometry=v_geom,
                 total_cost=v_cost,
                 total_travel_time=v_time,
@@ -386,6 +412,9 @@ class VRPEvaluator:
             "total_travel_time": round(total_fleet_time, 2),
         }
 
+        resolver = problem.graph.road_resolver if hasattr(problem.graph, "road_resolver") else get_road_resolver(problem.graph)
+        all_road_path, all_display_route, all_route_steps = resolver.resolve_edge_path(all_edge_paths)
+
         res = AlgorithmResult(
             algorithm=algorithm_name,
             status="feasible" if is_feasible else "infeasible",
@@ -393,6 +422,9 @@ class VRPEvaluator:
             visit_sequence=primary_visit_sequence,
             node_path=all_node_paths,
             edge_path=all_edge_paths,
+            road_path=all_road_path,
+            display_route=all_display_route,
+            route_steps=all_route_steps,
             total_cost=total_fleet_cost,
             total_travel_time=total_fleet_time,
             total_distance=total_fleet_dist,

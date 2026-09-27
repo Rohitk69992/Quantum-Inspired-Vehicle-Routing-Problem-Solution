@@ -3,6 +3,7 @@ import math
 import networkx as nx
 from typing import Dict, List, Tuple, Any, Optional
 from backend.graph.dynamic_graph import DynamicTrafficGraph
+from backend.graph.road_resolver import get_road_resolver
 
 
 class AStarRouter:
@@ -81,8 +82,15 @@ class AStarRouter:
             total_distance += length
             total_travel_time += tt
 
+            road_name = edge_data.get('road_name')
+            if not road_name and hasattr(dt_graph, 'road_resolver'):
+                road_name = dt_graph.road_resolver.get_road_name(edge_id)
+            elif not road_name:
+                road_name = "Unnamed road"
+
             segment_calculations.append({
                 'edge_id': edge_id,
+                'road_name': road_name,
                 'from_node': u,
                 'to_node': v,
                 'length_m': round(length, 2),
@@ -96,6 +104,7 @@ class AStarRouter:
             if cong > 0.3 or edge_id in dt_graph.incidents:
                 bottlenecks.append({
                     'edge_id': edge_id,
+                    'road_name': road_name,
                     'congestion_ratio': cong,
                     'is_incident': edge_id in dt_graph.incidents
                 })
@@ -107,6 +116,9 @@ class AStarRouter:
                         geometry.append((p[0], p[1]))
 
         avg_speed = total_distance / max(total_travel_time, 0.1)
+
+        resolver = dt_graph.road_resolver if hasattr(dt_graph, 'road_resolver') else get_road_resolver(dt_graph)
+        road_path, display_route, route_steps = resolver.resolve_edge_path(edge_path)
 
         math_proof = {
             'algorithm_name': "A* Shortest Path Search Algorithm",
@@ -124,6 +136,9 @@ class AStarRouter:
             'destination_node': destination_node,
             'node_path': node_path,
             'edge_path': edge_path,
+            'road_path': road_path,
+            'display_route': display_route,
+            'route_steps': route_steps,
             'total_cost': round(path_cost, 2),
             'total_travel_time': round(total_travel_time, 2),
             'total_distance': round(total_distance, 2),
