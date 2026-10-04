@@ -44,16 +44,17 @@ def generate_latex_tables():
         f.write("  \\label{tab:main_benchmark}\n")
         f.write("  \\centering\n")
         f.write("  \\small\n")
-        f.write("  \\begin{tabular}{llccccccc}\n")
+        f.write("  \\setlength{\\tabcolsep}{4.2pt}\n")
+        f.write("  \\begin{tabular}{llrrrrrrr}\n")
         f.write("    \\toprule\n")
-        f.write("    Instance & Algorithm & Mean Cost (s) & Std Dev & Median [IQR] & 95\\% Bootstrap CI & Runtime (ms) & Gap (\\%) & Feas. (\\%) \\\\\n")
+        f.write("    Instance & Algorithm & \\makecell[r]{Mean Cost\\\\(s)} & \\makecell[r]{Std.\\\\Dev.} & \\makecell[r]{Median\\\\{[IQR]}} & \\makecell[r]{95\\% Bootstrap\\\\CI} & \\makecell[r]{Runtime\\\\(ms)} & \\makecell[r]{Gap\\\\(\\%)} & \\makecell[r]{Feas.\\\\(\\%)} \\\\\n")
         f.write("    \\midrule\n")
 
         for inst_id, inst_info in stat_data["instances"].items():
             num_c = inst_info["num_customers"]
             num_v = inst_info["num_vehicles"]
             clean_id = inst_id.replace('_', r'\_')
-            inst_label = f"{clean_id} ($N={num_c}, K={num_v}$)"
+            inst_label = f"\\makecell[l]{{{clean_id}\\\\($N={num_c}, K={num_v}$)}}"
 
             algos = inst_info["algorithms"]
 
