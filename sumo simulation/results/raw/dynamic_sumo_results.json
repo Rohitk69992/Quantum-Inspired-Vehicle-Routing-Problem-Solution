@@ -1,0 +1,2530 @@
+{
+  "metadata": {
+    "experiment": "Closed-Loop Dynamic SUMO Incident Rerouting",
+    "incident_edge": "246580191#8",
+    "incident_edge_index": 25,
+    "incident_start_step": 30,
+    "incident_end_step": 150,
+    "speed_reduction_factor": 0.05,
+    "execution_date": "2026-10-04 10:26:05"
+  },
+  "static_regime": {
+    "telemetry_summary": {
+      "records": 155,
+      "mean_speed_ms": 11.12,
+      "peak_waiting_s": 1.0,
+      "final_distance_m": 1703.7
+    },
+    "telemetry": [
+      {
+        "step": 5,
+        "sim_time": 6.0,
+        "speed_ms": 0.0,
+        "road_id": "436376409",
+        "distance_m": 0.0,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 6,
+        "sim_time": 7.0,
+        "speed_ms": 2.04,
+        "road_id": "436376409",
+        "distance_m": 2.04,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 7,
+        "sim_time": 8.0,
+        "speed_ms": 3.69,
+        "road_id": "436376409",
+        "distance_m": 5.73,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 8,
+        "sim_time": 9.0,
+        "speed_ms": 6.07,
+        "road_id": "436376409",
+        "distance_m": 11.8,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 9,
+        "sim_time": 10.0,
+        "speed_ms": 7.47,
+        "road_id": "436376409",
+        "distance_m": 19.27,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 10,
+        "sim_time": 11.0,
+        "speed_ms": 9.73,
+        "road_id": "436376409",
+        "distance_m": 29.0,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 11,
+        "sim_time": 12.0,
+        "speed_ms": 11.72,
+        "road_id": "436376409",
+        "distance_m": 40.73,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 12,
+        "sim_time": 13.0,
+        "speed_ms": 13.86,
+        "road_id": "436376409",
+        "distance_m": 54.59,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 13,
+        "sim_time": 14.0,
+        "speed_ms": 12.42,
+        "road_id": "436376409",
+        "distance_m": 67.01,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 14,
+        "sim_time": 15.0,
+        "speed_ms": 8.71,
+        "road_id": "436376409",
+        "distance_m": 75.72,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 15,
+        "sim_time": 16.0,
+        "speed_ms": 4.21,
+        "road_id": "436376409",
+        "distance_m": 79.93,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 16,
+        "sim_time": 17.0,
+        "speed_ms": 6.36,
+        "road_id": ":cluster_245647115_4342481637_9",
+        "distance_m": 86.29,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 17,
+        "sim_time": 18.0,
+        "speed_ms": 8.4,
+        "road_id": ":cluster_245647115_4342481637_9",
+        "distance_m": 94.69,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 18,
+        "sim_time": 19.0,
+        "speed_ms": 9.83,
+        "road_id": ":cluster_245647115_4342481637_9",
+        "distance_m": 104.52,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 19,
+        "sim_time": 20.0,
+        "speed_ms": 12.34,
+        "road_id": "229873837#17",
+        "distance_m": 116.86,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 20,
+        "sim_time": 21.0,
+        "speed_ms": 14.35,
+        "road_id": "229873837#17",
+        "distance_m": 131.21,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 21,
+        "sim_time": 22.0,
+        "speed_ms": 14.14,
+        "road_id": ":10225218904_7",
+        "distance_m": 145.35,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 22,
+        "sim_time": 23.0,
+        "speed_ms": 14.04,
+        "road_id": "229873837#18",
+        "distance_m": 159.39,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 23,
+        "sim_time": 24.0,
+        "speed_ms": 14.54,
+        "road_id": "229873837#18",
+        "distance_m": 173.93,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 24,
+        "sim_time": 25.0,
+        "speed_ms": 14.19,
+        "road_id": "229873837#18",
+        "distance_m": 188.12,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 25,
+        "sim_time": 26.0,
+        "speed_ms": 13.49,
+        "road_id": "229873837#18",
+        "distance_m": 201.62,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 26,
+        "sim_time": 27.0,
+        "speed_ms": 14.65,
+        "road_id": "229873837#18",
+        "distance_m": 216.27,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 27,
+        "sim_time": 28.0,
+        "speed_ms": 13.47,
+        "road_id": ":10225218902_7",
+        "distance_m": 229.74,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 28,
+        "sim_time": 29.0,
+        "speed_ms": 13.61,
+        "road_id": "229873837#19",
+        "distance_m": 243.35,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 29,
+        "sim_time": 30.0,
+        "speed_ms": 14.12,
+        "road_id": "229873837#19",
+        "distance_m": 257.47,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 30,
+        "sim_time": 31.0,
+        "speed_ms": 13.96,
+        "road_id": "229873837#19",
+        "distance_m": 271.43,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 31,
+        "sim_time": 32.0,
+        "speed_ms": 14.43,
+        "road_id": "229873837#19",
+        "distance_m": 285.86,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 32,
+        "sim_time": 33.0,
+        "speed_ms": 14.51,
+        "road_id": "229873837#19",
+        "distance_m": 300.37,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 33,
+        "sim_time": 34.0,
+        "speed_ms": 14.58,
+        "road_id": "229873837#19",
+        "distance_m": 314.95,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 34,
+        "sim_time": 35.0,
+        "speed_ms": 14.49,
+        "road_id": "229873837#19",
+        "distance_m": 329.44,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 35,
+        "sim_time": 36.0,
+        "speed_ms": 13.87,
+        "road_id": "229873837#19",
+        "distance_m": 343.31,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 36,
+        "sim_time": 37.0,
+        "speed_ms": 13.58,
+        "road_id": "229873837#19",
+        "distance_m": 356.89,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 37,
+        "sim_time": 38.0,
+        "speed_ms": 13.44,
+        "road_id": "229873837#19",
+        "distance_m": 370.33,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 38,
+        "sim_time": 39.0,
+        "speed_ms": 13.94,
+        "road_id": "229873837#19",
+        "distance_m": 384.26,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 39,
+        "sim_time": 40.0,
+        "speed_ms": 14.02,
+        "road_id": "229873837#19",
+        "distance_m": 398.28,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 40,
+        "sim_time": 41.0,
+        "speed_ms": 14.69,
+        "road_id": "229873837#19",
+        "distance_m": 412.97,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 41,
+        "sim_time": 42.0,
+        "speed_ms": 13.58,
+        "road_id": "229873837#19",
+        "distance_m": 426.55,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 42,
+        "sim_time": 43.0,
+        "speed_ms": 14.41,
+        "road_id": "229873837#19",
+        "distance_m": 440.96,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 43,
+        "sim_time": 44.0,
+        "speed_ms": 14.54,
+        "road_id": "229873837#19",
+        "distance_m": 455.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 44,
+        "sim_time": 45.0,
+        "speed_ms": 14.09,
+        "road_id": "229873837#19",
+        "distance_m": 469.59,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 45,
+        "sim_time": 46.0,
+        "speed_ms": 14.06,
+        "road_id": "229873837#19",
+        "distance_m": 483.64,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 46,
+        "sim_time": 47.0,
+        "speed_ms": 14.49,
+        "road_id": "229873837#19",
+        "distance_m": 498.14,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 47,
+        "sim_time": 48.0,
+        "speed_ms": 13.53,
+        "road_id": "229873837#19",
+        "distance_m": 511.67,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 48,
+        "sim_time": 49.0,
+        "speed_ms": 13.83,
+        "road_id": "229873837#24",
+        "distance_m": 525.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 49,
+        "sim_time": 50.0,
+        "speed_ms": 14.44,
+        "road_id": "229873837#24",
+        "distance_m": 539.94,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 50,
+        "sim_time": 51.0,
+        "speed_ms": 14.24,
+        "road_id": ":1223954688_6",
+        "distance_m": 554.18,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 51,
+        "sim_time": 52.0,
+        "speed_ms": 11.4,
+        "road_id": "229873837#25",
+        "distance_m": 565.58,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 52,
+        "sim_time": 53.0,
+        "speed_ms": 13.05,
+        "road_id": "229873837#25",
+        "distance_m": 578.63,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 53,
+        "sim_time": 54.0,
+        "speed_ms": 13.94,
+        "road_id": ":cluster_11461786870_1223955197_8062433835_9",
+        "distance_m": 592.57,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 54,
+        "sim_time": 55.0,
+        "speed_ms": 14.0,
+        "road_id": ":cluster_11461786870_1223955197_8062433835_9",
+        "distance_m": 606.57,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 55,
+        "sim_time": 56.0,
+        "speed_ms": 13.55,
+        "road_id": "818055598#0",
+        "distance_m": 620.11,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 56,
+        "sim_time": 57.0,
+        "speed_ms": 13.45,
+        "road_id": "818055598#0",
+        "distance_m": 633.56,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 57,
+        "sim_time": 58.0,
+        "speed_ms": 14.33,
+        "road_id": "818055598#0",
+        "distance_m": 647.89,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 58,
+        "sim_time": 59.0,
+        "speed_ms": 14.02,
+        "road_id": "818055598#0",
+        "distance_m": 661.9,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 59,
+        "sim_time": 60.0,
+        "speed_ms": 9.64,
+        "road_id": ":1223955198_3",
+        "distance_m": 671.54,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 60,
+        "sim_time": 61.0,
+        "speed_ms": 9.86,
+        "road_id": "-22840920#17",
+        "distance_m": 681.4,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 61,
+        "sim_time": 62.0,
+        "speed_ms": 11.23,
+        "road_id": "-22840920#17",
+        "distance_m": 692.63,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 62,
+        "sim_time": 63.0,
+        "speed_ms": 11.75,
+        "road_id": ":1223955228_2",
+        "distance_m": 704.38,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 63,
+        "sim_time": 64.0,
+        "speed_ms": 11.51,
+        "road_id": "-22840920#15",
+        "distance_m": 715.88,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 64,
+        "sim_time": 65.0,
+        "speed_ms": 10.54,
+        "road_id": "-22840920#15",
+        "distance_m": 726.42,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 65,
+        "sim_time": 66.0,
+        "speed_ms": 10.54,
+        "road_id": "-22840920#15",
+        "distance_m": 736.96,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 66,
+        "sim_time": 67.0,
+        "speed_ms": 11.1,
+        "road_id": "-22840920#15",
+        "distance_m": 748.06,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 67,
+        "sim_time": 68.0,
+        "speed_ms": 11.51,
+        "road_id": ":2276465597_7",
+        "distance_m": 759.57,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 68,
+        "sim_time": 69.0,
+        "speed_ms": 11.31,
+        "road_id": "-22840920#12",
+        "distance_m": 770.88,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 69,
+        "sim_time": 70.0,
+        "speed_ms": 11.16,
+        "road_id": "-22840920#12",
+        "distance_m": 782.04,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 70,
+        "sim_time": 71.0,
+        "speed_ms": 10.74,
+        "road_id": ":1223955200_3",
+        "distance_m": 792.79,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 71,
+        "sim_time": 72.0,
+        "speed_ms": 10.63,
+        "road_id": "-22840920#11",
+        "distance_m": 803.42,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 72,
+        "sim_time": 73.0,
+        "speed_ms": 11.11,
+        "road_id": "-22840920#11",
+        "distance_m": 814.53,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 73,
+        "sim_time": 74.0,
+        "speed_ms": 11.21,
+        "road_id": "-22840920#11",
+        "distance_m": 825.73,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 74,
+        "sim_time": 75.0,
+        "speed_ms": 11.28,
+        "road_id": "-22840920#11",
+        "distance_m": 837.01,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 75,
+        "sim_time": 76.0,
+        "speed_ms": 11.56,
+        "road_id": "-22840920#11",
+        "distance_m": 848.57,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 76,
+        "sim_time": 77.0,
+        "speed_ms": 10.54,
+        "road_id": "-22840920#11",
+        "distance_m": 859.12,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 77,
+        "sim_time": 78.0,
+        "speed_ms": 10.66,
+        "road_id": ":8008456138_3",
+        "distance_m": 869.78,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 78,
+        "sim_time": 79.0,
+        "speed_ms": 11.6,
+        "road_id": "-22840920#10",
+        "distance_m": 881.38,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 79,
+        "sim_time": 80.0,
+        "speed_ms": 11.06,
+        "road_id": "-22840920#10",
+        "distance_m": 892.44,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 80,
+        "sim_time": 81.0,
+        "speed_ms": 11.7,
+        "road_id": "-22840920#10",
+        "distance_m": 904.13,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 81,
+        "sim_time": 82.0,
+        "speed_ms": 11.41,
+        "road_id": ":2251843330_7",
+        "distance_m": 915.55,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 82,
+        "sim_time": 83.0,
+        "speed_ms": 10.59,
+        "road_id": "-22840920#9",
+        "distance_m": 926.14,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 83,
+        "sim_time": 84.0,
+        "speed_ms": 11.03,
+        "road_id": "-22840920#9",
+        "distance_m": 937.16,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 84,
+        "sim_time": 85.0,
+        "speed_ms": 10.78,
+        "road_id": "-22840920#9",
+        "distance_m": 947.94,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 85,
+        "sim_time": 86.0,
+        "speed_ms": 11.09,
+        "road_id": "-22840920#9",
+        "distance_m": 959.03,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 86,
+        "sim_time": 87.0,
+        "speed_ms": 11.67,
+        "road_id": "-22840920#9",
+        "distance_m": 970.7,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 87,
+        "sim_time": 88.0,
+        "speed_ms": 11.69,
+        "road_id": "-22840920#9",
+        "distance_m": 982.39,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 88,
+        "sim_time": 89.0,
+        "speed_ms": 11.46,
+        "road_id": "-22840920#9",
+        "distance_m": 993.86,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 89,
+        "sim_time": 90.0,
+        "speed_ms": 11.11,
+        "road_id": "-22840920#9",
+        "distance_m": 1004.97,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 90,
+        "sim_time": 91.0,
+        "speed_ms": 10.78,
+        "road_id": "-22840920#9",
+        "distance_m": 1015.75,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 91,
+        "sim_time": 92.0,
+        "speed_ms": 10.55,
+        "road_id": "-22840920#9",
+        "distance_m": 1026.3,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 92,
+        "sim_time": 93.0,
+        "speed_ms": 11.63,
+        "road_id": "-22840920#9",
+        "distance_m": 1037.93,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 93,
+        "sim_time": 94.0,
+        "speed_ms": 10.52,
+        "road_id": "-22840920#9",
+        "distance_m": 1048.45,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 94,
+        "sim_time": 95.0,
+        "speed_ms": 11.14,
+        "road_id": "-22840920#9",
+        "distance_m": 1059.59,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 95,
+        "sim_time": 96.0,
+        "speed_ms": 10.53,
+        "road_id": "-22840920#9",
+        "distance_m": 1070.12,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 96,
+        "sim_time": 97.0,
+        "speed_ms": 10.9,
+        "road_id": "-22840920#9",
+        "distance_m": 1081.02,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 97,
+        "sim_time": 98.0,
+        "speed_ms": 10.75,
+        "road_id": "-22840920#9",
+        "distance_m": 1091.77,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 98,
+        "sim_time": 99.0,
+        "speed_ms": 10.85,
+        "road_id": "-22840920#9",
+        "distance_m": 1102.62,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 99,
+        "sim_time": 100.0,
+        "speed_ms": 11.53,
+        "road_id": "-22840920#9",
+        "distance_m": 1114.15,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 100,
+        "sim_time": 101.0,
+        "speed_ms": 11.35,
+        "road_id": "-22840920#9",
+        "distance_m": 1125.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 101,
+        "sim_time": 102.0,
+        "speed_ms": 10.68,
+        "road_id": "-22840920#9",
+        "distance_m": 1136.18,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 102,
+        "sim_time": 103.0,
+        "speed_ms": 10.66,
+        "road_id": "-22840920#9",
+        "distance_m": 1146.84,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 103,
+        "sim_time": 104.0,
+        "speed_ms": 10.71,
+        "road_id": "-22840920#9",
+        "distance_m": 1157.55,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 104,
+        "sim_time": 105.0,
+        "speed_ms": 10.74,
+        "road_id": "-22840920#9",
+        "distance_m": 1168.29,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 105,
+        "sim_time": 106.0,
+        "speed_ms": 11.54,
+        "road_id": "-22840920#9",
+        "distance_m": 1179.83,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 106,
+        "sim_time": 107.0,
+        "speed_ms": 11.29,
+        "road_id": "-22840920#9",
+        "distance_m": 1191.12,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 107,
+        "sim_time": 108.0,
+        "speed_ms": 11.22,
+        "road_id": "-22840920#9",
+        "distance_m": 1202.35,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 108,
+        "sim_time": 109.0,
+        "speed_ms": 11.05,
+        "road_id": "-22840920#9",
+        "distance_m": 1213.4,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 109,
+        "sim_time": 110.0,
+        "speed_ms": 10.36,
+        "road_id": "-22840920#9",
+        "distance_m": 1223.76,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 110,
+        "sim_time": 111.0,
+        "speed_ms": 5.86,
+        "road_id": "-22840920#9",
+        "distance_m": 1229.62,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 111,
+        "sim_time": 112.0,
+        "speed_ms": 8.02,
+        "road_id": ":1363428057_3",
+        "distance_m": 1237.64,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 112,
+        "sim_time": 113.0,
+        "speed_ms": 9.57,
+        "road_id": "-22840920#0",
+        "distance_m": 1247.21,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 113,
+        "sim_time": 114.0,
+        "speed_ms": 11.29,
+        "road_id": "-22840920#0",
+        "distance_m": 1258.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 114,
+        "sim_time": 115.0,
+        "speed_ms": 11.02,
+        "road_id": "-22840920#0",
+        "distance_m": 1269.53,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 115,
+        "sim_time": 116.0,
+        "speed_ms": 11.0,
+        "road_id": "-22840920#0",
+        "distance_m": 1280.53,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 116,
+        "sim_time": 117.0,
+        "speed_ms": 11.27,
+        "road_id": "-22840920#0",
+        "distance_m": 1291.8,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 117,
+        "sim_time": 118.0,
+        "speed_ms": 11.22,
+        "road_id": "-22840920#0",
+        "distance_m": 1303.02,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 118,
+        "sim_time": 119.0,
+        "speed_ms": 10.62,
+        "road_id": "-22840920#0",
+        "distance_m": 1313.64,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 119,
+        "sim_time": 120.0,
+        "speed_ms": 10.87,
+        "road_id": "-22840920#0",
+        "distance_m": 1324.51,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 120,
+        "sim_time": 121.0,
+        "speed_ms": 11.67,
+        "road_id": ":10225169311_4",
+        "distance_m": 1336.18,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 121,
+        "sim_time": 122.0,
+        "speed_ms": 11.35,
+        "road_id": "1155983064",
+        "distance_m": 1347.53,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 122,
+        "sim_time": 123.0,
+        "speed_ms": 10.63,
+        "road_id": "1155983064",
+        "distance_m": 1358.16,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 123,
+        "sim_time": 124.0,
+        "speed_ms": 11.33,
+        "road_id": "1155983064",
+        "distance_m": 1369.49,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 124,
+        "sim_time": 125.0,
+        "speed_ms": 10.76,
+        "road_id": "1155983064",
+        "distance_m": 1380.25,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 125,
+        "sim_time": 126.0,
+        "speed_ms": 11.67,
+        "road_id": "1155983064",
+        "distance_m": 1391.92,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 126,
+        "sim_time": 127.0,
+        "speed_ms": 10.63,
+        "road_id": "1155983064",
+        "distance_m": 1402.55,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 127,
+        "sim_time": 128.0,
+        "speed_ms": 10.98,
+        "road_id": "1155983064",
+        "distance_m": 1413.53,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 128,
+        "sim_time": 129.0,
+        "speed_ms": 11.34,
+        "road_id": "1155983064",
+        "distance_m": 1424.86,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 129,
+        "sim_time": 130.0,
+        "speed_ms": 10.48,
+        "road_id": "1155983064",
+        "distance_m": 1435.34,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 130,
+        "sim_time": 131.0,
+        "speed_ms": 7.61,
+        "road_id": "1155983064",
+        "distance_m": 1442.96,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 131,
+        "sim_time": 132.0,
+        "speed_ms": 4.31,
+        "road_id": "1155983064",
+        "distance_m": 1447.27,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 132,
+        "sim_time": 133.0,
+        "speed_ms": 5.88,
+        "road_id": ":245647109_4",
+        "distance_m": 1453.15,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 133,
+        "sim_time": 134.0,
+        "speed_ms": 5.68,
+        "road_id": ":245647109_4",
+        "distance_m": 1458.83,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 134,
+        "sim_time": 135.0,
+        "speed_ms": 1.23,
+        "road_id": ":245647109_4",
+        "distance_m": 1460.06,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 135,
+        "sim_time": 136.0,
+        "speed_ms": 0.2,
+        "road_id": "667524681#2",
+        "distance_m": 1460.25,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 136,
+        "sim_time": 137.0,
+        "speed_ms": 0.0,
+        "road_id": "667524681#2",
+        "distance_m": 1460.26,
+        "waiting_time_s": 1.0
+      },
+      {
+        "step": 137,
+        "sim_time": 138.0,
+        "speed_ms": 1.61,
+        "road_id": ":11461762860_3",
+        "distance_m": 1461.87,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 138,
+        "sim_time": 139.0,
+        "speed_ms": 3.49,
+        "road_id": ":11461762860_3",
+        "distance_m": 1465.35,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 139,
+        "sim_time": 140.0,
+        "speed_ms": 5.68,
+        "road_id": "211082524#0",
+        "distance_m": 1471.03,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 140,
+        "sim_time": 141.0,
+        "speed_ms": 8.22,
+        "road_id": "211082524#0",
+        "distance_m": 1479.25,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 141,
+        "sim_time": 142.0,
+        "speed_ms": 10.08,
+        "road_id": "211082524#0",
+        "distance_m": 1489.33,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 142,
+        "sim_time": 143.0,
+        "speed_ms": 12.5,
+        "road_id": "211082524#0",
+        "distance_m": 1501.82,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 143,
+        "sim_time": 144.0,
+        "speed_ms": 13.99,
+        "road_id": "211082524#0",
+        "distance_m": 1515.81,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 144,
+        "sim_time": 145.0,
+        "speed_ms": 14.51,
+        "road_id": "211082524#0",
+        "distance_m": 1530.33,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 145,
+        "sim_time": 146.0,
+        "speed_ms": 14.56,
+        "road_id": "211082524#0",
+        "distance_m": 1544.89,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 146,
+        "sim_time": 147.0,
+        "speed_ms": 14.33,
+        "road_id": "211082524#0",
+        "distance_m": 1559.21,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 147,
+        "sim_time": 148.0,
+        "speed_ms": 14.04,
+        "road_id": "211082524#0",
+        "distance_m": 1573.25,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 148,
+        "sim_time": 149.0,
+        "speed_ms": 13.16,
+        "road_id": "211082524#0",
+        "distance_m": 1586.41,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 149,
+        "sim_time": 150.0,
+        "speed_ms": 9.59,
+        "road_id": "211082524#0",
+        "distance_m": 1596.01,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 150,
+        "sim_time": 151.0,
+        "speed_ms": 5.09,
+        "road_id": ":2210912791_7",
+        "distance_m": 1601.1,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 151,
+        "sim_time": 152.0,
+        "speed_ms": 6.45,
+        "road_id": ":2210912791_10",
+        "distance_m": 1607.55,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 152,
+        "sim_time": 153.0,
+        "speed_ms": 7.78,
+        "road_id": ":10225215926_3",
+        "distance_m": 1615.33,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 153,
+        "sim_time": 154.0,
+        "speed_ms": 9.49,
+        "road_id": ":10225215926_3",
+        "distance_m": 1624.82,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 154,
+        "sim_time": 155.0,
+        "speed_ms": 10.88,
+        "road_id": ":10225215927_3",
+        "distance_m": 1635.7,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 155,
+        "sim_time": 156.0,
+        "speed_ms": 12.72,
+        "road_id": "-217278840#4",
+        "distance_m": 1648.42,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 156,
+        "sim_time": 157.0,
+        "speed_ms": 14.46,
+        "road_id": "-217278840#4",
+        "distance_m": 1662.89,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 157,
+        "sim_time": 158.0,
+        "speed_ms": 13.43,
+        "road_id": ":10225215929_7",
+        "distance_m": 1676.31,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 158,
+        "sim_time": 159.0,
+        "speed_ms": 13.96,
+        "road_id": "-217278840#3",
+        "distance_m": 1690.27,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 159,
+        "sim_time": 160.0,
+        "speed_ms": 13.43,
+        "road_id": "-217278840#3",
+        "distance_m": 1703.7,
+        "waiting_time_s": 0.0
+      }
+    ]
+  },
+  "dynamic_regime": {
+    "telemetry_summary": {
+      "records": 155,
+      "mean_speed_ms": 10.7,
+      "peak_waiting_s": 2.0,
+      "final_distance_m": 1648.2
+    },
+    "telemetry": [
+      {
+        "step": 5,
+        "sim_time": 6.0,
+        "speed_ms": 0.0,
+        "road_id": "436376409",
+        "distance_m": 0.0,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 6,
+        "sim_time": 7.0,
+        "speed_ms": 2.04,
+        "road_id": "436376409",
+        "distance_m": 2.04,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 7,
+        "sim_time": 8.0,
+        "speed_ms": 3.69,
+        "road_id": "436376409",
+        "distance_m": 5.73,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 8,
+        "sim_time": 9.0,
+        "speed_ms": 6.07,
+        "road_id": "436376409",
+        "distance_m": 11.8,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 9,
+        "sim_time": 10.0,
+        "speed_ms": 7.47,
+        "road_id": "436376409",
+        "distance_m": 19.27,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 10,
+        "sim_time": 11.0,
+        "speed_ms": 9.73,
+        "road_id": "436376409",
+        "distance_m": 29.0,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 11,
+        "sim_time": 12.0,
+        "speed_ms": 11.72,
+        "road_id": "436376409",
+        "distance_m": 40.73,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 12,
+        "sim_time": 13.0,
+        "speed_ms": 13.86,
+        "road_id": "436376409",
+        "distance_m": 54.59,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 13,
+        "sim_time": 14.0,
+        "speed_ms": 12.42,
+        "road_id": "436376409",
+        "distance_m": 67.01,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 14,
+        "sim_time": 15.0,
+        "speed_ms": 8.71,
+        "road_id": "436376409",
+        "distance_m": 75.72,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 15,
+        "sim_time": 16.0,
+        "speed_ms": 4.21,
+        "road_id": "436376409",
+        "distance_m": 79.93,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 16,
+        "sim_time": 17.0,
+        "speed_ms": 6.36,
+        "road_id": ":cluster_245647115_4342481637_9",
+        "distance_m": 86.29,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 17,
+        "sim_time": 18.0,
+        "speed_ms": 8.4,
+        "road_id": ":cluster_245647115_4342481637_9",
+        "distance_m": 94.69,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 18,
+        "sim_time": 19.0,
+        "speed_ms": 9.83,
+        "road_id": ":cluster_245647115_4342481637_9",
+        "distance_m": 104.52,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 19,
+        "sim_time": 20.0,
+        "speed_ms": 12.34,
+        "road_id": "229873837#17",
+        "distance_m": 116.86,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 20,
+        "sim_time": 21.0,
+        "speed_ms": 14.35,
+        "road_id": "229873837#17",
+        "distance_m": 131.21,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 21,
+        "sim_time": 22.0,
+        "speed_ms": 14.14,
+        "road_id": ":10225218904_7",
+        "distance_m": 145.35,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 22,
+        "sim_time": 23.0,
+        "speed_ms": 14.04,
+        "road_id": "229873837#18",
+        "distance_m": 159.39,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 23,
+        "sim_time": 24.0,
+        "speed_ms": 14.54,
+        "road_id": "229873837#18",
+        "distance_m": 173.93,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 24,
+        "sim_time": 25.0,
+        "speed_ms": 14.19,
+        "road_id": "229873837#18",
+        "distance_m": 188.12,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 25,
+        "sim_time": 26.0,
+        "speed_ms": 13.49,
+        "road_id": "229873837#18",
+        "distance_m": 201.62,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 26,
+        "sim_time": 27.0,
+        "speed_ms": 14.65,
+        "road_id": "229873837#18",
+        "distance_m": 216.27,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 27,
+        "sim_time": 28.0,
+        "speed_ms": 13.47,
+        "road_id": ":10225218902_7",
+        "distance_m": 229.74,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 28,
+        "sim_time": 29.0,
+        "speed_ms": 13.61,
+        "road_id": "229873837#19",
+        "distance_m": 243.35,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 29,
+        "sim_time": 30.0,
+        "speed_ms": 14.12,
+        "road_id": "229873837#19",
+        "distance_m": 257.47,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 30,
+        "sim_time": 31.0,
+        "speed_ms": 13.96,
+        "road_id": "229873837#19",
+        "distance_m": 271.43,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 31,
+        "sim_time": 32.0,
+        "speed_ms": 14.43,
+        "road_id": "229873837#19",
+        "distance_m": 285.86,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 32,
+        "sim_time": 33.0,
+        "speed_ms": 14.51,
+        "road_id": "229873837#19",
+        "distance_m": 300.37,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 33,
+        "sim_time": 34.0,
+        "speed_ms": 14.58,
+        "road_id": "229873837#19",
+        "distance_m": 314.95,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 34,
+        "sim_time": 35.0,
+        "speed_ms": 14.49,
+        "road_id": "229873837#19",
+        "distance_m": 329.44,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 35,
+        "sim_time": 36.0,
+        "speed_ms": 13.87,
+        "road_id": "229873837#19",
+        "distance_m": 343.31,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 36,
+        "sim_time": 37.0,
+        "speed_ms": 13.58,
+        "road_id": "229873837#19",
+        "distance_m": 356.89,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 37,
+        "sim_time": 38.0,
+        "speed_ms": 13.44,
+        "road_id": "229873837#19",
+        "distance_m": 370.33,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 38,
+        "sim_time": 39.0,
+        "speed_ms": 13.94,
+        "road_id": "229873837#19",
+        "distance_m": 384.26,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 39,
+        "sim_time": 40.0,
+        "speed_ms": 14.02,
+        "road_id": "229873837#19",
+        "distance_m": 398.28,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 40,
+        "sim_time": 41.0,
+        "speed_ms": 14.69,
+        "road_id": "229873837#19",
+        "distance_m": 412.97,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 41,
+        "sim_time": 42.0,
+        "speed_ms": 13.58,
+        "road_id": "229873837#19",
+        "distance_m": 426.55,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 42,
+        "sim_time": 43.0,
+        "speed_ms": 14.41,
+        "road_id": "229873837#19",
+        "distance_m": 440.96,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 43,
+        "sim_time": 44.0,
+        "speed_ms": 14.54,
+        "road_id": "229873837#19",
+        "distance_m": 455.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 44,
+        "sim_time": 45.0,
+        "speed_ms": 14.09,
+        "road_id": "229873837#19",
+        "distance_m": 469.59,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 45,
+        "sim_time": 46.0,
+        "speed_ms": 14.06,
+        "road_id": "229873837#19",
+        "distance_m": 483.64,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 46,
+        "sim_time": 47.0,
+        "speed_ms": 14.49,
+        "road_id": "229873837#19",
+        "distance_m": 498.14,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 47,
+        "sim_time": 48.0,
+        "speed_ms": 13.53,
+        "road_id": "229873837#19",
+        "distance_m": 511.67,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 48,
+        "sim_time": 49.0,
+        "speed_ms": 13.83,
+        "road_id": "229873837#24",
+        "distance_m": 525.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 49,
+        "sim_time": 50.0,
+        "speed_ms": 14.44,
+        "road_id": "229873837#24",
+        "distance_m": 539.94,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 50,
+        "sim_time": 51.0,
+        "speed_ms": 14.24,
+        "road_id": ":1223954688_6",
+        "distance_m": 554.18,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 51,
+        "sim_time": 52.0,
+        "speed_ms": 11.4,
+        "road_id": "229873837#25",
+        "distance_m": 565.58,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 52,
+        "sim_time": 53.0,
+        "speed_ms": 13.05,
+        "road_id": "229873837#25",
+        "distance_m": 578.63,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 53,
+        "sim_time": 54.0,
+        "speed_ms": 13.94,
+        "road_id": ":cluster_11461786870_1223955197_8062433835_9",
+        "distance_m": 592.57,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 54,
+        "sim_time": 55.0,
+        "speed_ms": 14.0,
+        "road_id": ":cluster_11461786870_1223955197_8062433835_9",
+        "distance_m": 606.57,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 55,
+        "sim_time": 56.0,
+        "speed_ms": 13.55,
+        "road_id": "818055598#0",
+        "distance_m": 620.11,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 56,
+        "sim_time": 57.0,
+        "speed_ms": 13.45,
+        "road_id": "818055598#0",
+        "distance_m": 633.56,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 57,
+        "sim_time": 58.0,
+        "speed_ms": 14.33,
+        "road_id": "818055598#0",
+        "distance_m": 647.89,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 58,
+        "sim_time": 59.0,
+        "speed_ms": 14.02,
+        "road_id": "818055598#0",
+        "distance_m": 661.9,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 59,
+        "sim_time": 60.0,
+        "speed_ms": 9.64,
+        "road_id": ":1223955198_3",
+        "distance_m": 671.54,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 60,
+        "sim_time": 61.0,
+        "speed_ms": 9.86,
+        "road_id": "-22840920#17",
+        "distance_m": 681.4,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 61,
+        "sim_time": 62.0,
+        "speed_ms": 11.23,
+        "road_id": "-22840920#17",
+        "distance_m": 692.63,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 62,
+        "sim_time": 63.0,
+        "speed_ms": 11.75,
+        "road_id": ":1223955228_2",
+        "distance_m": 704.38,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 63,
+        "sim_time": 64.0,
+        "speed_ms": 11.51,
+        "road_id": "-22840920#15",
+        "distance_m": 715.88,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 64,
+        "sim_time": 65.0,
+        "speed_ms": 10.54,
+        "road_id": "-22840920#15",
+        "distance_m": 726.42,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 65,
+        "sim_time": 66.0,
+        "speed_ms": 10.54,
+        "road_id": "-22840920#15",
+        "distance_m": 736.96,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 66,
+        "sim_time": 67.0,
+        "speed_ms": 11.1,
+        "road_id": "-22840920#15",
+        "distance_m": 748.06,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 67,
+        "sim_time": 68.0,
+        "speed_ms": 11.51,
+        "road_id": ":2276465597_7",
+        "distance_m": 759.57,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 68,
+        "sim_time": 69.0,
+        "speed_ms": 11.31,
+        "road_id": "-22840920#12",
+        "distance_m": 770.88,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 69,
+        "sim_time": 70.0,
+        "speed_ms": 7.61,
+        "road_id": "-22840920#12",
+        "distance_m": 778.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 70,
+        "sim_time": 71.0,
+        "speed_ms": 6.69,
+        "road_id": ":1223955200_4",
+        "distance_m": 785.19,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 71,
+        "sim_time": 72.0,
+        "speed_ms": 7.08,
+        "road_id": ":1223955200_4",
+        "distance_m": 792.27,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 72,
+        "sim_time": 73.0,
+        "speed_ms": 6.76,
+        "road_id": "106359188#0",
+        "distance_m": 799.04,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 73,
+        "sim_time": 74.0,
+        "speed_ms": 9.12,
+        "road_id": "106359188#0",
+        "distance_m": 808.16,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 74,
+        "sim_time": 75.0,
+        "speed_ms": 10.56,
+        "road_id": "106359188#0",
+        "distance_m": 818.72,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 75,
+        "sim_time": 76.0,
+        "speed_ms": 11.99,
+        "road_id": "106359188#0",
+        "distance_m": 830.71,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 76,
+        "sim_time": 77.0,
+        "speed_ms": 13.58,
+        "road_id": "106359188#0",
+        "distance_m": 844.28,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 77,
+        "sim_time": 78.0,
+        "speed_ms": 13.93,
+        "road_id": "106359188#0",
+        "distance_m": 858.22,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 78,
+        "sim_time": 79.0,
+        "speed_ms": 13.45,
+        "road_id": "106359188#0",
+        "distance_m": 871.67,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 79,
+        "sim_time": 80.0,
+        "speed_ms": 13.82,
+        "road_id": "106359188#0",
+        "distance_m": 885.49,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 80,
+        "sim_time": 81.0,
+        "speed_ms": 13.85,
+        "road_id": "106359188#2",
+        "distance_m": 899.34,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 81,
+        "sim_time": 82.0,
+        "speed_ms": 14.22,
+        "road_id": "106359188#2",
+        "distance_m": 913.56,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 82,
+        "sim_time": 83.0,
+        "speed_ms": 11.12,
+        "road_id": "106359188#2",
+        "distance_m": 924.68,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 83,
+        "sim_time": 84.0,
+        "speed_ms": 6.88,
+        "road_id": "106359188#2",
+        "distance_m": 931.55,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 84,
+        "sim_time": 85.0,
+        "speed_ms": 9.0,
+        "road_id": ":10224973974_3",
+        "distance_m": 940.56,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 85,
+        "sim_time": 86.0,
+        "speed_ms": 10.77,
+        "road_id": "106359188#3",
+        "distance_m": 951.33,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 86,
+        "sim_time": 87.0,
+        "speed_ms": 13.05,
+        "road_id": "106359188#3",
+        "distance_m": 964.38,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 87,
+        "sim_time": 88.0,
+        "speed_ms": 13.45,
+        "road_id": "106359188#3",
+        "distance_m": 977.83,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 88,
+        "sim_time": 89.0,
+        "speed_ms": 13.58,
+        "road_id": ":2251843299_0",
+        "distance_m": 991.41,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 89,
+        "sim_time": 90.0,
+        "speed_ms": 13.92,
+        "road_id": "106359188#4",
+        "distance_m": 1005.33,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 90,
+        "sim_time": 91.0,
+        "speed_ms": 13.64,
+        "road_id": "106359188#4",
+        "distance_m": 1018.96,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 91,
+        "sim_time": 92.0,
+        "speed_ms": 11.71,
+        "road_id": "106359188#4",
+        "distance_m": 1030.67,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 92,
+        "sim_time": 93.0,
+        "speed_ms": 7.81,
+        "road_id": "106359188#4",
+        "distance_m": 1038.49,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 93,
+        "sim_time": 94.0,
+        "speed_ms": 6.42,
+        "road_id": ":1223955199_2",
+        "distance_m": 1044.9,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 94,
+        "sim_time": 95.0,
+        "speed_ms": 6.43,
+        "road_id": "1373579430#0",
+        "distance_m": 1051.33,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 95,
+        "sim_time": 96.0,
+        "speed_ms": 8.09,
+        "road_id": "1373579430#0",
+        "distance_m": 1059.42,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 96,
+        "sim_time": 97.0,
+        "speed_ms": 9.41,
+        "road_id": "1373579430#0",
+        "distance_m": 1068.84,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 97,
+        "sim_time": 98.0,
+        "speed_ms": 10.99,
+        "road_id": "1373579430#0",
+        "distance_m": 1079.83,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 98,
+        "sim_time": 99.0,
+        "speed_ms": 8.2,
+        "road_id": "1373579430#0",
+        "distance_m": 1088.03,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 99,
+        "sim_time": 100.0,
+        "speed_ms": 4.47,
+        "road_id": "1373579430#0",
+        "distance_m": 1092.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 100,
+        "sim_time": 101.0,
+        "speed_ms": 6.18,
+        "road_id": ":245647065_2",
+        "distance_m": 1098.68,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 101,
+        "sim_time": 102.0,
+        "speed_ms": 7.94,
+        "road_id": "750336640#0",
+        "distance_m": 1106.62,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 102,
+        "sim_time": 103.0,
+        "speed_ms": 10.48,
+        "road_id": "750336640#0",
+        "distance_m": 1117.1,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 103,
+        "sim_time": 104.0,
+        "speed_ms": 10.59,
+        "road_id": "750336640#0",
+        "distance_m": 1127.69,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 104,
+        "sim_time": 105.0,
+        "speed_ms": 11.1,
+        "road_id": "750336640#0",
+        "distance_m": 1138.8,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 105,
+        "sim_time": 106.0,
+        "speed_ms": 11.62,
+        "road_id": "750336640#0",
+        "distance_m": 1150.42,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 106,
+        "sim_time": 107.0,
+        "speed_ms": 10.89,
+        "road_id": "750336640#0",
+        "distance_m": 1161.31,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 107,
+        "sim_time": 108.0,
+        "speed_ms": 10.85,
+        "road_id": "750336640#0",
+        "distance_m": 1172.16,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 108,
+        "sim_time": 109.0,
+        "speed_ms": 11.74,
+        "road_id": "750336640#0",
+        "distance_m": 1183.9,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 109,
+        "sim_time": 110.0,
+        "speed_ms": 10.63,
+        "road_id": "750336640#0",
+        "distance_m": 1194.54,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 110,
+        "sim_time": 111.0,
+        "speed_ms": 11.49,
+        "road_id": "750336640#0",
+        "distance_m": 1206.03,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 111,
+        "sim_time": 112.0,
+        "speed_ms": 11.43,
+        "road_id": "750336640#0",
+        "distance_m": 1217.46,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 112,
+        "sim_time": 113.0,
+        "speed_ms": 11.35,
+        "road_id": "750336640#0",
+        "distance_m": 1228.81,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 113,
+        "sim_time": 114.0,
+        "speed_ms": 11.62,
+        "road_id": "750336640#0",
+        "distance_m": 1240.43,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 114,
+        "sim_time": 115.0,
+        "speed_ms": 11.49,
+        "road_id": "750336640#0",
+        "distance_m": 1251.93,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 115,
+        "sim_time": 116.0,
+        "speed_ms": 11.75,
+        "road_id": "750336640#0",
+        "distance_m": 1263.68,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 116,
+        "sim_time": 117.0,
+        "speed_ms": 11.15,
+        "road_id": "750336640#0",
+        "distance_m": 1274.83,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 117,
+        "sim_time": 118.0,
+        "speed_ms": 10.6,
+        "road_id": "750336640#0",
+        "distance_m": 1285.43,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 118,
+        "sim_time": 119.0,
+        "speed_ms": 10.61,
+        "road_id": "750336640#0",
+        "distance_m": 1296.04,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 119,
+        "sim_time": 120.0,
+        "speed_ms": 11.68,
+        "road_id": "750336640#0",
+        "distance_m": 1307.72,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 120,
+        "sim_time": 121.0,
+        "speed_ms": 11.63,
+        "road_id": "750336640#0",
+        "distance_m": 1319.36,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 121,
+        "sim_time": 122.0,
+        "speed_ms": 10.75,
+        "road_id": ":cluster_1223955769_2210912779_6",
+        "distance_m": 1330.11,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 122,
+        "sim_time": 123.0,
+        "speed_ms": 11.39,
+        "road_id": ":cluster_1223955769_2210912779_6",
+        "distance_m": 1341.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 123,
+        "sim_time": 124.0,
+        "speed_ms": 11.77,
+        "road_id": "1533869167",
+        "distance_m": 1353.27,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 124,
+        "sim_time": 125.0,
+        "speed_ms": 11.52,
+        "road_id": "1533869167",
+        "distance_m": 1364.79,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 125,
+        "sim_time": 126.0,
+        "speed_ms": 10.51,
+        "road_id": "1533869167",
+        "distance_m": 1375.29,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 126,
+        "sim_time": 127.0,
+        "speed_ms": 10.57,
+        "road_id": "1533869167",
+        "distance_m": 1385.87,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 127,
+        "sim_time": 128.0,
+        "speed_ms": 9.47,
+        "road_id": "1533869167",
+        "distance_m": 1395.34,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 128,
+        "sim_time": 129.0,
+        "speed_ms": 7.52,
+        "road_id": "1533869167",
+        "distance_m": 1402.85,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 129,
+        "sim_time": 130.0,
+        "speed_ms": 4.64,
+        "road_id": "1533869167",
+        "distance_m": 1407.49,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 130,
+        "sim_time": 131.0,
+        "speed_ms": 6.3,
+        "road_id": ":1223956172_7",
+        "distance_m": 1413.79,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 131,
+        "sim_time": 132.0,
+        "speed_ms": 8.78,
+        "road_id": ":1223956172_7",
+        "distance_m": 1422.57,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 132,
+        "sim_time": 133.0,
+        "speed_ms": 11.31,
+        "road_id": "246580193#0",
+        "distance_m": 1433.88,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 133,
+        "sim_time": 134.0,
+        "speed_ms": 11.11,
+        "road_id": "246580193#0",
+        "distance_m": 1444.99,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 134,
+        "sim_time": 135.0,
+        "speed_ms": 11.51,
+        "road_id": "246580193#0",
+        "distance_m": 1456.49,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 135,
+        "sim_time": 136.0,
+        "speed_ms": 10.71,
+        "road_id": "246580193#0",
+        "distance_m": 1467.2,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 136,
+        "sim_time": 137.0,
+        "speed_ms": 11.37,
+        "road_id": "246580193#0",
+        "distance_m": 1478.58,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 137,
+        "sim_time": 138.0,
+        "speed_ms": 10.96,
+        "road_id": "246580193#0",
+        "distance_m": 1489.54,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 138,
+        "sim_time": 139.0,
+        "speed_ms": 11.52,
+        "road_id": "246580193#0",
+        "distance_m": 1501.06,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 139,
+        "sim_time": 140.0,
+        "speed_ms": 11.53,
+        "road_id": ":2210912771_7",
+        "distance_m": 1512.59,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 140,
+        "sim_time": 141.0,
+        "speed_ms": 11.64,
+        "road_id": ":2210912771_7",
+        "distance_m": 1524.22,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 141,
+        "sim_time": 142.0,
+        "speed_ms": 11.09,
+        "road_id": "667524680#0",
+        "distance_m": 1535.31,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 142,
+        "sim_time": 143.0,
+        "speed_ms": 11.54,
+        "road_id": "667524680#0",
+        "distance_m": 1546.86,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 143,
+        "sim_time": 144.0,
+        "speed_ms": 10.94,
+        "road_id": "667524680#0",
+        "distance_m": 1557.8,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 144,
+        "sim_time": 145.0,
+        "speed_ms": 10.04,
+        "road_id": "667524680#0",
+        "distance_m": 1567.83,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 145,
+        "sim_time": 146.0,
+        "speed_ms": 8.96,
+        "road_id": "667524680#0",
+        "distance_m": 1576.79,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 146,
+        "sim_time": 147.0,
+        "speed_ms": 6.96,
+        "road_id": "667524680#0",
+        "distance_m": 1583.75,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 147,
+        "sim_time": 148.0,
+        "speed_ms": 4.3,
+        "road_id": "667524680#0",
+        "distance_m": 1588.05,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 148,
+        "sim_time": 149.0,
+        "speed_ms": 0.26,
+        "road_id": "667524680#0",
+        "distance_m": 1588.31,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 149,
+        "sim_time": 150.0,
+        "speed_ms": 0.21,
+        "road_id": "667524680#0",
+        "distance_m": 1588.52,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 150,
+        "sim_time": 151.0,
+        "speed_ms": 0.02,
+        "road_id": "667524680#0",
+        "distance_m": 1588.55,
+        "waiting_time_s": 1.0
+      },
+      {
+        "step": 151,
+        "sim_time": 152.0,
+        "speed_ms": 0.01,
+        "road_id": "667524680#0",
+        "distance_m": 1588.56,
+        "waiting_time_s": 2.0
+      },
+      {
+        "step": 152,
+        "sim_time": 153.0,
+        "speed_ms": 0.94,
+        "road_id": "667524680#0",
+        "distance_m": 1589.5,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 153,
+        "sim_time": 154.0,
+        "speed_ms": 2.93,
+        "road_id": "667524680#0",
+        "distance_m": 1592.43,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 154,
+        "sim_time": 155.0,
+        "speed_ms": 5.2,
+        "road_id": ":cluster_7976380725_7976403441_9",
+        "distance_m": 1597.63,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 155,
+        "sim_time": 156.0,
+        "speed_ms": 6.49,
+        "road_id": ":cluster_7976380725_7976403441_9",
+        "distance_m": 1604.12,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 156,
+        "sim_time": 157.0,
+        "speed_ms": 8.91,
+        "road_id": ":cluster_7976380725_7976403441_9",
+        "distance_m": 1613.03,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 157,
+        "sim_time": 158.0,
+        "speed_ms": 10.19,
+        "road_id": "22841193#0",
+        "distance_m": 1623.22,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 158,
+        "sim_time": 159.0,
+        "speed_ms": 11.63,
+        "road_id": "22841193#0",
+        "distance_m": 1634.85,
+        "waiting_time_s": 0.0
+      },
+      {
+        "step": 159,
+        "sim_time": 160.0,
+        "speed_ms": 13.31,
+        "road_id": "22841193#0",
+        "distance_m": 1648.16,
+        "waiting_time_s": 0.0
+      }
+    ]
+  },
+  "comparative_metrics": {
+    "mean_speed_during_incident_static_ms": 11.12,
+    "mean_speed_during_incident_dynamic_ms": 10.7,
+    "speed_improvement_pct": -3.8,
+    "peak_waiting_time_static_s": 1.0,
+    "peak_waiting_time_dynamic_s": 2.0,
+    "waiting_time_reduction_pct": -100.0,
+    "distance_covered_static_m": 1703.7,
+    "distance_covered_dynamic_m": 1648.2,
+    "reroute_metadata": {
+      "step": 32,
+      "sim_time": 33.0,
+      "detection_latency_ms": 2.09,
+      "action": "DYNAMIC_LOCAL_REROUTE",
+      "avoided_edge": "246580191#8",
+      "new_route_edge_count": 218,
+      "detour_edges_count": 28
+    }
+  }
+}

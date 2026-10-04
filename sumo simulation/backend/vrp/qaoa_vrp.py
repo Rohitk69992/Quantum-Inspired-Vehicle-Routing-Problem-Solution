@@ -328,6 +328,12 @@ class QAOAVRPSolver:
                     v2 = j * N + (p + 1)
                     Q[v1, v2] += c_i_j
 
+        # Step N-1: Cost from last customer (i) back to Origin (0) (Return-to-depot leg)
+        for i in range(N):
+            c_i_0 = cost_matrix.get((i + 1, 0), 10.0)
+            v_idx = i * N + (N - 1)  # Customer i at position N-1
+            linear[v_idx] += c_i_0
+
         # 2. Customer visit uniqueness penalty: Each customer i is visited at exactly one position p
         for i in range(N):
             cust_vars = [i * N + p for p in range(N)]

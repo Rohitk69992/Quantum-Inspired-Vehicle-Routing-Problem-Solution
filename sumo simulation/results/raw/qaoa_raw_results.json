@@ -1,0 +1,311 @@
+{
+  "metadata": {
+    "execution_date": "2026-10-04 10:25:19",
+    "backend": "Qiskit Statevector Simulator",
+    "ansatz": "p=1 QAOA with Standard X-mixer",
+    "seeds": [
+      10,
+      20,
+      30,
+      40,
+      50,
+      60
+    ]
+  },
+  "instances": {
+    "pune_q3": {
+      "num_customers": 3,
+      "num_qubits": 9,
+      "exact_mip_cost": 720.8502979887621,
+      "exact_mip_time_ms": 94.39860000111366,
+      "exhaustive_cost": 720.8502979887621,
+      "runs": [
+        {
+          "seed": 10,
+          "cost": 781.2552814676717,
+          "travel_time": 781.2552814676717,
+          "distance": 10828.439999999999,
+          "runtime_ms": 209.9449999996068,
+          "feasible": true,
+          "optimality_gap_pct": 8.379684887062538,
+          "qubits": 9,
+          "penalty_P": 4703.7657,
+          "selected_bitstring": "001010100",
+          "selected_probability": 0.000881,
+          "most_likely_bitstring": "011101110",
+          "most_likely_probability": 0.019675,
+          "variational_parameters": {
+            "gamma": [
+              0.778
+            ],
+            "beta": [
+              -0.39993
+            ]
+          }
+        },
+        {
+          "seed": 20,
+          "cost": 781.2552814676717,
+          "travel_time": 781.2552814676717,
+          "distance": 10828.439999999999,
+          "runtime_ms": 151.57240000007732,
+          "feasible": true,
+          "optimality_gap_pct": 8.379684887062538,
+          "qubits": 9,
+          "penalty_P": 4703.7657,
+          "selected_bitstring": "001010100",
+          "selected_probability": 0.000881,
+          "most_likely_bitstring": "011101110",
+          "most_likely_probability": 0.019675,
+          "variational_parameters": {
+            "gamma": [
+              0.778
+            ],
+            "beta": [
+              -0.39993
+            ]
+          }
+        },
+        {
+          "seed": 30,
+          "cost": 781.2552814676717,
+          "travel_time": 781.2552814676717,
+          "distance": 10828.439999999999,
+          "runtime_ms": 170.17420000047423,
+          "feasible": true,
+          "optimality_gap_pct": 8.379684887062538,
+          "qubits": 9,
+          "penalty_P": 4703.7657,
+          "selected_bitstring": "001010100",
+          "selected_probability": 0.000881,
+          "most_likely_bitstring": "011101110",
+          "most_likely_probability": 0.019675,
+          "variational_parameters": {
+            "gamma": [
+              0.778
+            ],
+            "beta": [
+              -0.39993
+            ]
+          }
+        },
+        {
+          "seed": 40,
+          "cost": 781.2552814676717,
+          "travel_time": 781.2552814676717,
+          "distance": 10828.439999999999,
+          "runtime_ms": 164.2426999997042,
+          "feasible": true,
+          "optimality_gap_pct": 8.379684887062538,
+          "qubits": 9,
+          "penalty_P": 4703.7657,
+          "selected_bitstring": "001010100",
+          "selected_probability": 0.000881,
+          "most_likely_bitstring": "011101110",
+          "most_likely_probability": 0.019675,
+          "variational_parameters": {
+            "gamma": [
+              0.778
+            ],
+            "beta": [
+              -0.39993
+            ]
+          }
+        },
+        {
+          "seed": 50,
+          "cost": 781.2552814676717,
+          "travel_time": 781.2552814676717,
+          "distance": 10828.439999999999,
+          "runtime_ms": 189.50309999945603,
+          "feasible": true,
+          "optimality_gap_pct": 8.379684887062538,
+          "qubits": 9,
+          "penalty_P": 4703.7657,
+          "selected_bitstring": "001010100",
+          "selected_probability": 0.000881,
+          "most_likely_bitstring": "011101110",
+          "most_likely_probability": 0.019675,
+          "variational_parameters": {
+            "gamma": [
+              0.778
+            ],
+            "beta": [
+              -0.39993
+            ]
+          }
+        },
+        {
+          "seed": 60,
+          "cost": 781.2552814676717,
+          "travel_time": 781.2552814676717,
+          "distance": 10828.439999999999,
+          "runtime_ms": 225.29059999942547,
+          "feasible": true,
+          "optimality_gap_pct": 8.379684887062538,
+          "qubits": 9,
+          "penalty_P": 4703.7657,
+          "selected_bitstring": "001010100",
+          "selected_probability": 0.000881,
+          "most_likely_bitstring": "011101110",
+          "most_likely_probability": 0.019675,
+          "variational_parameters": {
+            "gamma": [
+              0.778
+            ],
+            "beta": [
+              -0.39993
+            ]
+          }
+        }
+      ]
+    },
+    "pune_q4": {
+      "num_customers": 4,
+      "num_qubits": 16,
+      "exact_mip_cost": 829.4511058017249,
+      "exact_mip_time_ms": 181.451599999491,
+      "exhaustive_cost": 829.4511058017249,
+      "runs": [
+        {
+          "seed": 10,
+          "cost": 1039.235169089263,
+          "travel_time": 1039.235169089263,
+          "distance": 14241.489999999998,
+          "runtime_ms": 1930.6454999996276,
+          "feasible": true,
+          "optimality_gap_pct": 25.29191435398312,
+          "qubits": 16,
+          "penalty_P": 7996.2785,
+          "selected_bitstring": "0010000110000100",
+          "selected_probability": 9.8e-05,
+          "most_likely_bitstring": "1111111111111111",
+          "most_likely_probability": 0.002094,
+          "variational_parameters": {
+            "gamma": [
+              1.57127
+            ],
+            "beta": [
+              0.33657
+            ]
+          }
+        },
+        {
+          "seed": 20,
+          "cost": 1039.235169089263,
+          "travel_time": 1039.235169089263,
+          "distance": 14241.489999999998,
+          "runtime_ms": 1670.092499999555,
+          "feasible": true,
+          "optimality_gap_pct": 25.29191435398312,
+          "qubits": 16,
+          "penalty_P": 7996.2785,
+          "selected_bitstring": "0010000110000100",
+          "selected_probability": 9.8e-05,
+          "most_likely_bitstring": "1111111111111111",
+          "most_likely_probability": 0.002094,
+          "variational_parameters": {
+            "gamma": [
+              1.57127
+            ],
+            "beta": [
+              0.33657
+            ]
+          }
+        },
+        {
+          "seed": 30,
+          "cost": 1039.235169089263,
+          "travel_time": 1039.235169089263,
+          "distance": 14241.489999999998,
+          "runtime_ms": 1463.978799999495,
+          "feasible": true,
+          "optimality_gap_pct": 25.29191435398312,
+          "qubits": 16,
+          "penalty_P": 7996.2785,
+          "selected_bitstring": "0010000110000100",
+          "selected_probability": 9.8e-05,
+          "most_likely_bitstring": "1111111111111111",
+          "most_likely_probability": 0.002094,
+          "variational_parameters": {
+            "gamma": [
+              1.57127
+            ],
+            "beta": [
+              0.33657
+            ]
+          }
+        },
+        {
+          "seed": 40,
+          "cost": 1039.235169089263,
+          "travel_time": 1039.235169089263,
+          "distance": 14241.489999999998,
+          "runtime_ms": 1580.8435999997528,
+          "feasible": true,
+          "optimality_gap_pct": 25.29191435398312,
+          "qubits": 16,
+          "penalty_P": 7996.2785,
+          "selected_bitstring": "0010000110000100",
+          "selected_probability": 9.8e-05,
+          "most_likely_bitstring": "1111111111111111",
+          "most_likely_probability": 0.002094,
+          "variational_parameters": {
+            "gamma": [
+              1.57127
+            ],
+            "beta": [
+              0.33657
+            ]
+          }
+        },
+        {
+          "seed": 50,
+          "cost": 1039.235169089263,
+          "travel_time": 1039.235169089263,
+          "distance": 14241.489999999998,
+          "runtime_ms": 1937.068199999885,
+          "feasible": true,
+          "optimality_gap_pct": 25.29191435398312,
+          "qubits": 16,
+          "penalty_P": 7996.2785,
+          "selected_bitstring": "0010000110000100",
+          "selected_probability": 9.8e-05,
+          "most_likely_bitstring": "1111111111111111",
+          "most_likely_probability": 0.002094,
+          "variational_parameters": {
+            "gamma": [
+              1.57127
+            ],
+            "beta": [
+              0.33657
+            ]
+          }
+        },
+        {
+          "seed": 60,
+          "cost": 1039.235169089263,
+          "travel_time": 1039.235169089263,
+          "distance": 14241.489999999998,
+          "runtime_ms": 2196.361600000273,
+          "feasible": true,
+          "optimality_gap_pct": 25.29191435398312,
+          "qubits": 16,
+          "penalty_P": 7996.2785,
+          "selected_bitstring": "0010000110000100",
+          "selected_probability": 9.8e-05,
+          "most_likely_bitstring": "1111111111111111",
+          "most_likely_probability": 0.002094,
+          "variational_parameters": {
+            "gamma": [
+              1.57127
+            ],
+            "beta": [
+              0.33657
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

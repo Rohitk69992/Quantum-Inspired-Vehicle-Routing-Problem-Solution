@@ -1,0 +1,24 @@
+# Dynamic SUMO Traffic Simulation Configuration
+# Project: "A SUMO-Based Framework for Traffic-Aware Vehicle Routing With Quantum-Inspired and Classical Optimization"
+
+simulation:
+  sumocfg_path: "osm.sumocfg"
+  net_file: "osm.net.xml.gz"
+  use_gui: false
+  step_length_s: 1.0
+  total_simulation_steps: 300
+  warmup_steps: 50
+
+incident_scenario:
+  enabled: true
+  description: "Arterial blockage simulating unexpected lane obstruction on key corridor"
+  incident_step_start: 70
+  incident_step_end: 220
+  target_edge: null # will be dynamically selected from the initial planned route
+  speed_factor: 0.05
+  incident_penalty_multiplier: 50.0
+
+rerouting_policy:
+  check_interval_steps: 10
+  cost_increase_threshold_pct: 20.0
+  algorithms: ["ALNS", "HGS", "QPSO"]

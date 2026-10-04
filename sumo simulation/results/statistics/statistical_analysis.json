@@ -1,0 +1,874 @@
+{
+  "metadata": {
+    "suite_name": "IEEE_TITS_Benchmark_Suite",
+    "version": "2.0",
+    "execution_date": "2026-10-04 10:15:31",
+    "hardware_telemetry": {
+      "os_platform": "Windows-10-10.0.26300-SP0",
+      "os_system": "Windows",
+      "os_release": "10",
+      "os_version": "10.0.26300",
+      "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+      "machine": "AMD64",
+      "cpu_count_physical": 6,
+      "cpu_count_logical": 12,
+      "cpu_frequency_mhz": 2011.0,
+      "ram_total_gb": 13.86,
+      "python_version": "3.11.9",
+      "python_compiler": "MSC v.1938 64 bit (AMD64)",
+      "numpy_version": "2.4.4",
+      "scipy_version": "1.17.1",
+      "networkx_version": "3.6.1",
+      "qiskit_version": "2.5.2",
+      "sumo_version": "1.27.1",
+      "timestamp_iso": "2026-10-04T04:45:30Z"
+    },
+    "network": {
+      "nodes": 3559,
+      "edges": 8263,
+      "load_time_s": 1.5633466243743896
+    }
+  },
+  "instances": {
+    "pune_n5_v1_unconstrained": {
+      "instance_id": "pune_n5_v1_unconstrained",
+      "type": "Level_1_Baseline",
+      "num_customers": 5,
+      "num_vehicles": 1,
+      "binding_capacity": false,
+      "algorithms": {
+        "Exact_MIP": {
+          "feasible": true,
+          "cost": 865.01,
+          "runtime_ms": 133.54,
+          "distance_m": 11832.27
+        },
+        "Exhaustive_Baseline": {
+          "feasible": true,
+          "cost": 865.01,
+          "runtime_ms": 53.49,
+          "distance_m": 11832.27
+        },
+        "HGS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 865.48,
+          "std_cost": 2.53,
+          "median_cost": 865.01,
+          "iqr_cost": 0.0,
+          "ci_95_cost": [
+            865.01,
+            866.4
+          ],
+          "min_cost": 865.01,
+          "max_cost": 878.87,
+          "mean_runtime_ms": 70.17,
+          "std_runtime_ms": 2.76,
+          "median_runtime_ms": 69.14,
+          "mean_gap_pct": 0.05
+        },
+        "ALNS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 866.86,
+          "std_cost": 4.79,
+          "median_cost": 865.01,
+          "iqr_cost": 0.0,
+          "ci_95_cost": [
+            865.48,
+            868.71
+          ],
+          "min_cost": 865.01,
+          "max_cost": 878.87,
+          "mean_runtime_ms": 2.69,
+          "std_runtime_ms": 0.28,
+          "median_runtime_ms": 2.61,
+          "mean_gap_pct": 0.21
+        },
+        "QPSO": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 868.71,
+          "std_cost": 6.23,
+          "median_cost": 865.01,
+          "iqr_cost": 10.39,
+          "ci_95_cost": [
+            866.4,
+            871.02
+          ],
+          "min_cost": 865.01,
+          "max_cost": 878.87,
+          "mean_runtime_ms": 504.74,
+          "std_runtime_ms": 53.96,
+          "median_runtime_ms": 502.44,
+          "mean_gap_pct": 0.43
+        }
+      }
+    },
+    "pune_n5_v2_binding": {
+      "instance_id": "pune_n5_v2_binding",
+      "type": "Level_1_Binding",
+      "num_customers": 5,
+      "num_vehicles": 2,
+      "binding_capacity": true,
+      "algorithms": {
+        "Exact_MIP": {
+          "feasible": true,
+          "cost": 1080.84,
+          "runtime_ms": 174.74,
+          "distance_m": 14806.85
+        },
+        "HGS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1084.43,
+          "std_cost": 10.92,
+          "median_cost": 1080.84,
+          "iqr_cost": 0.0,
+          "ci_95_cost": [
+            1081.36,
+            1089.1
+          ],
+          "min_cost": 1080.84,
+          "max_cost": 1137.78,
+          "mean_runtime_ms": 89.84,
+          "std_runtime_ms": 7.98,
+          "median_runtime_ms": 87.6,
+          "mean_gap_pct": 0.33
+        },
+        "ALNS": {
+          "n_runs": 30,
+          "feasible_runs": 11,
+          "feasibility_rate_pct": 36.7,
+          "mean_cost": 1081.95,
+          "std_cost": 3.7,
+          "median_cost": 1080.84,
+          "iqr_cost": 0.0,
+          "ci_95_cost": [
+            1080.84,
+            1084.18
+          ],
+          "min_cost": 1080.84,
+          "max_cost": 1093.1,
+          "mean_runtime_ms": 2.92,
+          "std_runtime_ms": 0.39,
+          "median_runtime_ms": 2.81,
+          "mean_gap_pct": 0.1
+        },
+        "QPSO": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1080.84,
+          "std_cost": 0.0,
+          "median_cost": 1080.84,
+          "iqr_cost": 0.0,
+          "ci_95_cost": [
+            1080.84,
+            1080.84
+          ],
+          "min_cost": 1080.84,
+          "max_cost": 1080.84,
+          "mean_runtime_ms": 600.65,
+          "std_runtime_ms": 39.11,
+          "median_runtime_ms": 591.76,
+          "mean_gap_pct": 0.0
+        }
+      }
+    },
+    "pune_n8_v1_unconstrained": {
+      "instance_id": "pune_n8_v1_unconstrained",
+      "type": "Level_1_Scale",
+      "num_customers": 8,
+      "num_vehicles": 1,
+      "binding_capacity": false,
+      "algorithms": {
+        "Exact_MIP": {
+          "feasible": true,
+          "cost": 1095.4,
+          "runtime_ms": 605.38,
+          "distance_m": 15069.93
+        },
+        "Exhaustive_Baseline": {
+          "feasible": true,
+          "cost": 1149.98,
+          "runtime_ms": 207.58,
+          "distance_m": 16100.67
+        },
+        "HGS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1099.6,
+          "std_cost": 7.21,
+          "median_cost": 1095.4,
+          "iqr_cost": 7.36,
+          "ci_95_cost": [
+            1097.27,
+            1102.3
+          ],
+          "min_cost": 1095.4,
+          "max_cost": 1115.0,
+          "mean_runtime_ms": 108.1,
+          "std_runtime_ms": 5.42,
+          "median_runtime_ms": 106.63,
+          "mean_gap_pct": 0.38
+        },
+        "ALNS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1100.03,
+          "std_cost": 7.2,
+          "median_cost": 1095.4,
+          "iqr_cost": 15.44,
+          "ci_95_cost": [
+            1097.46,
+            1102.61
+          ],
+          "min_cost": 1095.4,
+          "max_cost": 1110.84,
+          "mean_runtime_ms": 4.43,
+          "std_runtime_ms": 0.4,
+          "median_runtime_ms": 4.36,
+          "mean_gap_pct": 0.42
+        },
+        "QPSO": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1110.64,
+          "std_cost": 11.79,
+          "median_cost": 1110.84,
+          "iqr_cost": 21.21,
+          "ci_95_cost": [
+            1106.53,
+            1114.82
+          ],
+          "min_cost": 1095.4,
+          "max_cost": 1134.25,
+          "mean_runtime_ms": 794.75,
+          "std_runtime_ms": 181.18,
+          "median_runtime_ms": 730.95,
+          "mean_gap_pct": 1.39
+        }
+      }
+    },
+    "pune_n8_v2_binding": {
+      "instance_id": "pune_n8_v2_binding",
+      "type": "Level_1_Binding",
+      "num_customers": 8,
+      "num_vehicles": 2,
+      "binding_capacity": true,
+      "algorithms": {
+        "Exact_MIP": {
+          "feasible": true,
+          "cost": 1292.0,
+          "runtime_ms": 1227.11,
+          "distance_m": 17636.12
+        },
+        "HGS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1329.65,
+          "std_cost": 33.91,
+          "median_cost": 1320.46,
+          "iqr_cost": 30.53,
+          "ci_95_cost": [
+            1318.69,
+            1342.27
+          ],
+          "min_cost": 1292.0,
+          "max_cost": 1445.24,
+          "mean_runtime_ms": 176.67,
+          "std_runtime_ms": 27.98,
+          "median_runtime_ms": 170.92,
+          "mean_gap_pct": 2.91
+        },
+        "ALNS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1298.86,
+          "std_cost": 37.6,
+          "median_cost": 1292.0,
+          "iqr_cost": 0.0,
+          "ci_95_cost": [
+            1292.0,
+            1312.59
+          ],
+          "min_cost": 1292.0,
+          "max_cost": 1497.97,
+          "mean_runtime_ms": 4.58,
+          "std_runtime_ms": 0.56,
+          "median_runtime_ms": 4.4,
+          "mean_gap_pct": 0.53
+        },
+        "QPSO": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1301.64,
+          "std_cost": 13.3,
+          "median_cost": 1292.0,
+          "iqr_cost": 21.19,
+          "ci_95_cost": [
+            1297.35,
+            1306.68
+          ],
+          "min_cost": 1292.0,
+          "max_cost": 1335.01,
+          "mean_runtime_ms": 957.66,
+          "std_runtime_ms": 136.72,
+          "median_runtime_ms": 900.77,
+          "mean_gap_pct": 0.75
+        }
+      }
+    },
+    "pune_n10_v2_binding": {
+      "instance_id": "pune_n10_v2_binding",
+      "type": "Level_2_Binding",
+      "num_customers": 10,
+      "num_vehicles": 2,
+      "binding_capacity": true,
+      "algorithms": {
+        "Exact_MIP": {
+          "feasible": true,
+          "cost": 1426.2,
+          "runtime_ms": 3352.5,
+          "distance_m": 19861.76
+        },
+        "HGS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1476.67,
+          "std_cost": 33.9,
+          "median_cost": 1468.47,
+          "iqr_cost": 46.04,
+          "ci_95_cost": [
+            1464.79,
+            1489.14
+          ],
+          "min_cost": 1439.37,
+          "max_cost": 1577.08,
+          "mean_runtime_ms": 285.49,
+          "std_runtime_ms": 23.55,
+          "median_runtime_ms": 279.15,
+          "mean_gap_pct": 3.54
+        },
+        "ALNS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1427.18,
+          "std_cost": 5.4,
+          "median_cost": 1426.2,
+          "iqr_cost": 0.0,
+          "ci_95_cost": [
+            1426.2,
+            1429.15
+          ],
+          "min_cost": 1426.2,
+          "max_cost": 1455.76,
+          "mean_runtime_ms": 6.26,
+          "std_runtime_ms": 0.6,
+          "median_runtime_ms": 6.08,
+          "mean_gap_pct": 0.07
+        },
+        "QPSO": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1470.82,
+          "std_cost": 29.88,
+          "median_cost": 1467.17,
+          "iqr_cost": 43.57,
+          "ci_95_cost": [
+            1459.64,
+            1482.11
+          ],
+          "min_cost": 1426.2,
+          "max_cost": 1538.51,
+          "mean_runtime_ms": 1093.82,
+          "std_runtime_ms": 112.59,
+          "median_runtime_ms": 1059.82,
+          "mean_gap_pct": 3.13
+        }
+      }
+    },
+    "pune_n15_v3_binding": {
+      "instance_id": "pune_n15_v3_binding",
+      "type": "Level_2_Scale",
+      "num_customers": 15,
+      "num_vehicles": 3,
+      "binding_capacity": true,
+      "algorithms": {
+        "Exact_MIP": {
+          "feasible": false,
+          "cost": 0.0,
+          "runtime_ms": 0.08,
+          "distance_m": 0.0
+        },
+        "HGS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1989.43,
+          "std_cost": 140.58,
+          "median_cost": 1993.0,
+          "iqr_cost": 229.33,
+          "ci_95_cost": [
+            1939.37,
+            2036.98
+          ],
+          "min_cost": 1695.74,
+          "max_cost": 2262.72,
+          "mean_runtime_ms": 552.38,
+          "std_runtime_ms": 106.55,
+          "median_runtime_ms": 509.71,
+          "mean_gap_pct": null
+        },
+        "ALNS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1608.08,
+          "std_cost": 48.9,
+          "median_cost": 1591.92,
+          "iqr_cost": 3.11,
+          "ci_95_cost": [
+            1595.05,
+            1628.37
+          ],
+          "min_cost": 1588.74,
+          "max_cost": 1834.76,
+          "mean_runtime_ms": 45.13,
+          "std_runtime_ms": 176.58,
+          "median_runtime_ms": 13.09,
+          "mean_gap_pct": null
+        },
+        "QPSO": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1861.39,
+          "std_cost": 172.14,
+          "median_cost": 1853.59,
+          "iqr_cost": 243.18,
+          "ci_95_cost": [
+            1802.57,
+            1924.98
+          ],
+          "min_cost": 1596.8,
+          "max_cost": 2253.33,
+          "mean_runtime_ms": 1901.31,
+          "std_runtime_ms": 284.96,
+          "median_runtime_ms": 1785.69,
+          "mean_gap_pct": null
+        }
+      }
+    },
+    "pune_n20_v4_binding": {
+      "instance_id": "pune_n20_v4_binding",
+      "type": "Level_2_Scale",
+      "num_customers": 20,
+      "num_vehicles": 4,
+      "binding_capacity": true,
+      "algorithms": {
+        "HGS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 2916.66,
+          "std_cost": 200.03,
+          "median_cost": 2919.16,
+          "iqr_cost": 283.69,
+          "ci_95_cost": [
+            2847.31,
+            2990.62
+          ],
+          "min_cost": 2558.45,
+          "max_cost": 3362.91,
+          "mean_runtime_ms": 909.83,
+          "std_runtime_ms": 74.87,
+          "median_runtime_ms": 886.53,
+          "mean_gap_pct": null
+        },
+        "ALNS": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 1995.89,
+          "std_cost": 29.54,
+          "median_cost": 1986.76,
+          "iqr_cost": 1.39,
+          "ci_95_cost": [
+            1987.29,
+            2008.07
+          ],
+          "min_cost": 1986.76,
+          "max_cost": 2131.8,
+          "mean_runtime_ms": 78.28,
+          "std_runtime_ms": 295.5,
+          "median_runtime_ms": 24.05,
+          "mean_gap_pct": null
+        },
+        "QPSO": {
+          "n_runs": 30,
+          "feasible_runs": 30,
+          "feasibility_rate_pct": 100.0,
+          "mean_cost": 2708.69,
+          "std_cost": 228.54,
+          "median_cost": 2746.07,
+          "iqr_cost": 246.96,
+          "ci_95_cost": [
+            2628.34,
+            2789.23
+          ],
+          "min_cost": 2171.87,
+          "max_cost": 3164.02,
+          "mean_runtime_ms": 2607.74,
+          "std_runtime_ms": 231.76,
+          "median_runtime_ms": 2550.78,
+          "mean_gap_pct": null
+        }
+      }
+    }
+  },
+  "omnibus_tests": {
+    "test_name": "Friedman Non-Parametric Rank Test",
+    "num_instances": 7,
+    "num_algorithms": 3,
+    "algorithms": [
+      "HGS",
+      "ALNS",
+      "QPSO"
+    ],
+    "average_ranks": {
+      "HGS": 2.429,
+      "ALNS": 1.429,
+      "QPSO": 2.143
+    },
+    "friedman_chi2": 3.7143,
+    "friedman_p_value": 0.1561180453159716,
+    "iman_davenport_f": 2.1667,
+    "iman_davenport_p_value": 0.15726733391116543,
+    "reject_null_at_05": false
+  },
+  "pairwise_comparisons": {
+    "pune_n5_v1_unconstrained": [
+      {
+        "pair": "HGS_vs_ALNS",
+        "algo_a": "HGS",
+        "algo_b": "ALNS",
+        "n_pairs": 30,
+        "mean_a": 865.48,
+        "mean_b": 866.86,
+        "wilcoxon_stat": 28.0,
+        "raw_p_value": 0.17971249487899976,
+        "a12_effect_size": 0.55,
+        "magnitude": "negligible",
+        "holm_adjusted_p_value": 0.35942,
+        "statistically_significant_at_05": false
+      },
+      {
+        "pair": "HGS_vs_QPSO",
+        "algo_a": "HGS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 865.48,
+        "mean_b": 868.71,
+        "wilcoxon_stat": 26.0,
+        "raw_p_value": 0.019630657257290667,
+        "a12_effect_size": 0.6167,
+        "magnitude": "small",
+        "holm_adjusted_p_value": 0.05889,
+        "statistically_significant_at_05": false
+      },
+      {
+        "pair": "ALNS_vs_QPSO",
+        "algo_a": "ALNS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 866.86,
+        "mean_b": 868.71,
+        "wilcoxon_stat": 76.5,
+        "raw_p_value": 0.2059032107320684,
+        "a12_effect_size": 0.5667,
+        "magnitude": "small",
+        "holm_adjusted_p_value": 0.35942,
+        "statistically_significant_at_05": false
+      }
+    ],
+    "pune_n5_v2_binding": [
+      {
+        "pair": "HGS_vs_ALNS",
+        "algo_a": "HGS",
+        "algo_b": "ALNS",
+        "n_pairs": 11,
+        "mean_a": 1080.99,
+        "mean_b": 1081.95,
+        "wilcoxon_stat": 10.0,
+        "raw_p_value": 1.0,
+        "a12_effect_size": 0.5041,
+        "magnitude": "negligible",
+        "holm_adjusted_p_value": 1.0,
+        "statistically_significant_at_05": false
+      },
+      {
+        "pair": "HGS_vs_QPSO",
+        "algo_a": "HGS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1084.43,
+        "mean_b": 1080.84,
+        "wilcoxon_stat": 0.0,
+        "raw_p_value": 0.014440182996893822,
+        "a12_effect_size": 0.4,
+        "magnitude": "small",
+        "holm_adjusted_p_value": 0.04332,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "ALNS_vs_QPSO",
+        "algo_a": "ALNS",
+        "algo_b": "QPSO",
+        "n_pairs": 11,
+        "mean_a": 1081.95,
+        "mean_b": 1080.84,
+        "wilcoxon_stat": 0.0,
+        "raw_p_value": 1.0,
+        "a12_effect_size": 0.4545,
+        "magnitude": "negligible",
+        "holm_adjusted_p_value": 1.0,
+        "statistically_significant_at_05": false
+      }
+    ],
+    "pune_n8_v1_unconstrained": [
+      {
+        "pair": "HGS_vs_ALNS",
+        "algo_a": "HGS",
+        "algo_b": "ALNS",
+        "n_pairs": 30,
+        "mean_a": 1099.6,
+        "mean_b": 1100.03,
+        "wilcoxon_stat": 154.5,
+        "raw_p_value": 0.9725951456227013,
+        "a12_effect_size": 0.5017,
+        "magnitude": "negligible",
+        "holm_adjusted_p_value": 0.9726,
+        "statistically_significant_at_05": false
+      },
+      {
+        "pair": "HGS_vs_QPSO",
+        "algo_a": "HGS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1099.6,
+        "mean_b": 1110.64,
+        "wilcoxon_stat": 16.0,
+        "raw_p_value": 6.967138970933783e-05,
+        "a12_effect_size": 0.7633,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.00021,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "ALNS_vs_QPSO",
+        "algo_a": "ALNS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1100.03,
+        "mean_b": 1110.64,
+        "wilcoxon_stat": 56.0,
+        "raw_p_value": 0.0007236238745296521,
+        "a12_effect_size": 0.77,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.00145,
+        "statistically_significant_at_05": true
+      }
+    ],
+    "pune_n8_v2_binding": [
+      {
+        "pair": "HGS_vs_ALNS",
+        "algo_a": "HGS",
+        "algo_b": "ALNS",
+        "n_pairs": 30,
+        "mean_a": 1329.65,
+        "mean_b": 1298.86,
+        "wilcoxon_stat": 30.0,
+        "raw_p_value": 4.681671697112703e-05,
+        "a12_effect_size": 0.0978,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.00014,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "HGS_vs_QPSO",
+        "algo_a": "HGS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1329.65,
+        "mean_b": 1301.64,
+        "wilcoxon_stat": 49.0,
+        "raw_p_value": 0.00020182985726143772,
+        "a12_effect_size": 0.1983,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.0004,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "ALNS_vs_QPSO",
+        "algo_a": "ALNS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1298.86,
+        "mean_b": 1301.64,
+        "wilcoxon_stat": 30.0,
+        "raw_p_value": 0.004001111478181905,
+        "a12_effect_size": 0.6767,
+        "magnitude": "medium",
+        "holm_adjusted_p_value": 0.004,
+        "statistically_significant_at_05": true
+      }
+    ],
+    "pune_n10_v2_binding": [
+      {
+        "pair": "HGS_vs_ALNS",
+        "algo_a": "HGS",
+        "algo_b": "ALNS",
+        "n_pairs": 30,
+        "mean_a": 1476.67,
+        "mean_b": 1427.18,
+        "wilcoxon_stat": 1.0,
+        "raw_p_value": 1.9185250858625864e-06,
+        "a12_effect_size": 0.0128,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 1e-05,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "HGS_vs_QPSO",
+        "algo_a": "HGS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1476.67,
+        "mean_b": 1470.82,
+        "wilcoxon_stat": 210.0,
+        "raw_p_value": 0.6554384250193834,
+        "a12_effect_size": 0.4744,
+        "magnitude": "negligible",
+        "holm_adjusted_p_value": 0.65544,
+        "statistically_significant_at_05": false
+      },
+      {
+        "pair": "ALNS_vs_QPSO",
+        "algo_a": "ALNS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1427.18,
+        "mean_b": 1470.82,
+        "wilcoxon_stat": 5.0,
+        "raw_p_value": 4.5595036879215884e-06,
+        "a12_effect_size": 0.925,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 1e-05,
+        "statistically_significant_at_05": true
+      }
+    ],
+    "pune_n15_v3_binding": [
+      {
+        "pair": "HGS_vs_ALNS",
+        "algo_a": "HGS",
+        "algo_b": "ALNS",
+        "n_pairs": 30,
+        "mean_a": 1989.43,
+        "mean_b": 1608.08,
+        "wilcoxon_stat": 0.0,
+        "raw_p_value": 1.862645149230957e-09,
+        "a12_effect_size": 0.0033,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.0,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "HGS_vs_QPSO",
+        "algo_a": "HGS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1989.43,
+        "mean_b": 1861.39,
+        "wilcoxon_stat": 104.0,
+        "raw_p_value": 0.007111456245183945,
+        "a12_effect_size": 0.2756,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.00711,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "ALNS_vs_QPSO",
+        "algo_a": "ALNS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1608.08,
+        "mean_b": 1861.39,
+        "wilcoxon_stat": 17.0,
+        "raw_p_value": 3.855675458908081e-07,
+        "a12_effect_size": 0.9711,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.0,
+        "statistically_significant_at_05": true
+      }
+    ],
+    "pune_n20_v4_binding": [
+      {
+        "pair": "HGS_vs_ALNS",
+        "algo_a": "HGS",
+        "algo_b": "ALNS",
+        "n_pairs": 30,
+        "mean_a": 2916.66,
+        "mean_b": 1995.89,
+        "wilcoxon_stat": 0.0,
+        "raw_p_value": 1.862645149230957e-09,
+        "a12_effect_size": 0.0,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.0,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "HGS_vs_QPSO",
+        "algo_a": "HGS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 2916.66,
+        "mean_b": 2708.69,
+        "wilcoxon_stat": 105.0,
+        "raw_p_value": 0.007612137123942375,
+        "a12_effect_size": 0.2533,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.00761,
+        "statistically_significant_at_05": true
+      },
+      {
+        "pair": "ALNS_vs_QPSO",
+        "algo_a": "ALNS",
+        "algo_b": "QPSO",
+        "n_pairs": 30,
+        "mean_a": 1995.89,
+        "mean_b": 2708.69,
+        "wilcoxon_stat": 0.0,
+        "raw_p_value": 1.862645149230957e-09,
+        "a12_effect_size": 1.0,
+        "magnitude": "large",
+        "holm_adjusted_p_value": 0.0,
+        "statistically_significant_at_05": true
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-09-21T21:01:41.671097+05:30 by Eclipse SUMO GUI 1.27.1
+<!-- generated on 2026-10-04T10:26:22.207905+05:30 by Eclipse SUMO sumo 1.27.1
 <sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -32,7 +32,7 @@
     </report>
 
     <traci_server>
-        <remote-port value="55535"/>
+        <remote-port value="64022"/>
     </traci_server>
 
     <gui_only>
@@ -45,5 +45,8 @@
 -->
 
 <stops xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/stopinfo_file.xsd">
-    <stopinfo id="pt_subway_2:0.0" type="pt_subway" lane="1532296306#0_0" pos="199.99" parking="0" started="25.00" ended="59.00" delay="0.00" busStop="11699340656" initialPersons="0" loadedPersons="0" unloadedPersons="0" initialContainers="0" loadedContainers="0" unloadedContainers="0" blockedDuration="0.00"/>
+    <stopinfo id="pt_subway_2:0.0" type="pt_subway" lane="1532296306#0_0" pos="199.98" parking="0" started="25.00" ended="59.00" delay="0.00" busStop="11699340656" initialPersons="0" loadedPersons="0" unloadedPersons="0" initialContainers="0" loadedContainers="0" unloadedContainers="0" blockedDuration="0.00"/>
+    <stopinfo id="pt_train_12702:0.0" type="pt_train" lane="216121876#1_0" pos="319.33" parking="0" started="33.00" ended="87.00" delay="0.00" busStop="2257797395" initialPersons="0" loadedPersons="0" unloadedPersons="0" initialContainers="0" loadedContainers="0" unloadedContainers="0" blockedDuration="0.00"/>
+    <stopinfo id="pt_subway_2:1.0" type="pt_subway" lane="1039564318#0_0" pos="199.99" parking="0" started="59.00" ended="95.00" delay="0.00" busStop="5573167932" initialPersons="0" loadedPersons="0" unloadedPersons="0" initialContainers="0" loadedContainers="0" unloadedContainers="0" blockedDuration="0.00"/>
+    <stopinfo id="pt_subway_2:0.0" type="pt_subway" lane="1532296306#0_0" pos="1647.15" parking="0" started="122.00" ended="154.00" delay="0.00" busStop="11699340654" initialPersons="0" loadedPersons="0" unloadedPersons="0" initialContainers="0" loadedContainers="0" unloadedContainers="0" blockedDuration="0.00"/>
 </stops>

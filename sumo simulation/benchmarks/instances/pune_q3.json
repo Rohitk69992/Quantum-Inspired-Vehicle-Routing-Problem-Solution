@@ -1,0 +1,25 @@
+{
+  "id": "pune_q3",
+  "name": "Pune Quantum 3-Customer Benchmark",
+  "type": "Level_0_Quantum",
+  "depot": "4342481629",
+  "destinations": [
+    "674071881",
+    "10225049025",
+    "10230365803"
+  ],
+  "num_customers": 3,
+  "vehicles": [
+    {
+      "vehicle_id": "V1",
+      "capacity": 100.0,
+      "color": "#1f77b4"
+    }
+  ],
+  "customer_demands": {
+    "674071881": 1.0,
+    "10225049025": 1.0,
+    "10230365803": 1.0
+  },
+  "binding_capacity": false
+}

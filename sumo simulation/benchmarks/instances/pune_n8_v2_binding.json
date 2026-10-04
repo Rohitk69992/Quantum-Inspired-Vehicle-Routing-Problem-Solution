@@ -1,0 +1,40 @@
+{
+  "id": "pune_n8_v2_binding",
+  "name": "Pune N=8 Two-Vehicle Binding Capacity CVRP",
+  "type": "Level_1_Binding",
+  "depot": "4342481629",
+  "destinations": [
+    "674071881",
+    "10225049025",
+    "10230365803",
+    "10232669781",
+    "2086912251",
+    "2273609190",
+    "cluster_2085669839_245646640",
+    "10213963894"
+  ],
+  "num_customers": 8,
+  "vehicles": [
+    {
+      "vehicle_id": "V1",
+      "capacity": 5.0,
+      "color": "#1f77b4"
+    },
+    {
+      "vehicle_id": "V2",
+      "capacity": 5.0,
+      "color": "#ff7f0e"
+    }
+  ],
+  "customer_demands": {
+    "674071881": 1.5,
+    "10225049025": 1.5,
+    "10230365803": 1.0,
+    "10232669781": 1.0,
+    "2086912251": 1.0,
+    "2273609190": 1.0,
+    "cluster_2085669839_245646640": 1.0,
+    "10213963894": 1.0
+  },
+  "binding_capacity": true
+}

@@ -1,0 +1,102 @@
+# Benchmark Experiment Configuration
+# Project: "A SUMO-Based Framework for Traffic-Aware Vehicle Routing With Quantum-Inspired and Classical Optimization"
+# Target Venue: IEEE Transactions on Intelligent Transportation Systems (IEEE T-ITS)
+
+experiment_suite:
+  name: "IEEE_TITS_Benchmark_Suite"
+  version: "2.0"
+  description: "Multi-instance, multi-seed comparative benchmark with binding capacity constraints and quantum-tractable instances"
+
+hardware_telemetry:
+  log_cpu: true
+  log_ram: true
+  log_os: true
+  log_clock_frequency: true
+
+execution_parameters:
+  num_seeds: 30
+  seeds: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300]
+  time_limit_mip_s: 30.0
+
+algorithms:
+  Exact_MIP:
+    enabled: true
+    solver: "HiGHS"
+    formulation: "MTZ"
+    max_customers: 15
+  Exhaustive_Baseline:
+    enabled: true
+    max_customers: 8
+    max_vehicles: 1
+  ALNS:
+    enabled: true
+    max_iter: 100
+    decay_factor: 0.8
+    cooling_rate: 0.97
+    budget_evaluations: 1000
+  HGS:
+    enabled: true
+    mu: 20
+    lambda_offspring: 15
+    max_iter: 50
+    budget_evaluations: 1000
+  QPSO:
+    enabled: true
+    num_particles: 25
+    max_iter: 40
+    alpha_start: 1.0
+    alpha_end: 0.5
+    budget_evaluations: 1000
+
+quantum_experiments:
+  QAOA:
+    enabled: true
+    instances: ["pune_q3", "pune_q4"]
+    restarts: 3
+    shots: 1024
+    optimizer: "COBYLA"
+    backend: "StatevectorSimulator"
+
+instances:
+  - id: "pune_n5_v1_unconstrained"
+    file: "benchmarks/instances/pune_n5_v1_unconstrained.json"
+    type: "Level_1_Baseline"
+    num_customers: 5
+    num_vehicles: 1
+    binding_capacity: false
+  - id: "pune_n5_v2_binding"
+    file: "benchmarks/instances/pune_n5_v2_binding.json"
+    type: "Level_1_Binding"
+    num_customers: 5
+    num_vehicles: 2
+    binding_capacity: true
+  - id: "pune_n8_v1_unconstrained"
+    file: "benchmarks/instances/pune_n8_v1_unconstrained.json"
+    type: "Level_1_Scale"
+    num_customers: 8
+    num_vehicles: 1
+    binding_capacity: false
+  - id: "pune_n8_v2_binding"
+    file: "benchmarks/instances/pune_n8_v2_binding.json"
+    type: "Level_1_Binding"
+    num_customers: 8
+    num_vehicles: 2
+    binding_capacity: true
+  - id: "pune_n10_v2_binding"
+    file: "benchmarks/instances/pune_n10_v2_binding.json"
+    type: "Level_2_Binding"
+    num_customers: 10
+    num_vehicles: 2
+    binding_capacity: true
+  - id: "pune_n15_v3_binding"
+    file: "benchmarks/instances/pune_n15_v3_binding.json"
+    type: "Level_2_Scale"
+    num_customers: 15
+    num_vehicles: 3
+    binding_capacity: true
+  - id: "pune_n20_v4_binding"
+    file: "benchmarks/instances/pune_n20_v4_binding.json"
+    type: "Level_2_Scale"
+    num_customers: 20
+    num_vehicles: 4
+    binding_capacity: true

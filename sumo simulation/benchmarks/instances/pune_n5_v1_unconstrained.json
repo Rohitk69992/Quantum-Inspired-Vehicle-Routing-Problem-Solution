@@ -1,0 +1,29 @@
+{
+  "id": "pune_n5_v1_unconstrained",
+  "name": "Pune N=5 Single-Vehicle Free-Flow Baseline",
+  "type": "Level_1_Baseline",
+  "depot": "4342481629",
+  "destinations": [
+    "674071881",
+    "10225049025",
+    "10230365803",
+    "10232669781",
+    "2086912251"
+  ],
+  "num_customers": 5,
+  "vehicles": [
+    {
+      "vehicle_id": "V1",
+      "capacity": 100.0,
+      "color": "#1f77b4"
+    }
+  ],
+  "customer_demands": {
+    "674071881": 1.0,
+    "10225049025": 1.0,
+    "10230365803": 1.0,
+    "10232669781": 1.0,
+    "2086912251": 1.0
+  },
+  "binding_capacity": false
+}

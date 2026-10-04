@@ -1,0 +1,28 @@
+# Statistical Methodology Configuration
+# Compliant with IEEE T-ITS & Evolutionary Computation Guidelines
+
+statistical_tests:
+  significance_level_alpha: 0.05
+  bootstrap_replications: 2000
+  confidence_interval_level: 0.95
+
+  omnibus_test:
+    name: "Friedman Test"
+    description: "Non-parametric omnibus rank test across multiple problem instances"
+    correction: "Iman-Davenport F-statistic"
+  
+  post_hoc_procedure:
+    name: "Holm Step-Down Procedure"
+    familywise_error_control: true
+    baseline_comparator: "HGS" # or best performing algorithm
+
+  effect_size_metric:
+    name: "Vargha-Delaney A12"
+    thresholds:
+      negligible: 0.56
+      small: 0.64
+      medium: 0.71
+      large: 1.00
+
+  tie_handling:
+    method: "wilcoxon_pratt" # Pratt modification retains zero differences in rank assignment
