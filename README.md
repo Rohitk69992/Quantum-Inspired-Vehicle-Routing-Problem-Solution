@@ -697,7 +697,7 @@ The platform enforces 20 architectural invariants ensuring system safety and mat
 ### 25.2 Installation Steps
 ```powershell
 # 1. Clone the repository
-git clone https://github.com/your-org/sih26137-quantum-fleet-optimization.git
+git clone https://github.com/Rohitk69992/Quantum-Inspired-Vehicle-Routing-Problem-Solution.git
 cd "sih26137-quantum-fleet-optimization"
 
 # 2. Create and activate Python virtual environment
@@ -750,3 +750,12 @@ Open your browser and navigate to: **`http://127.0.0.1:8000/`** to access the Op
 8. **Krajzewicz, D., Erdmann, J., Behrisch, M., & Bieker, L. (2012).** Recent development and applications of SUMO-Simulation of Urban MObility. *International Journal on Advances in Systems and Measurements*, 5(3&4), 128–138.
 9. **Miller, C. E., Tucker, A. W., & Zemlin, R. A. (1960).** Integer programming formulation of traveling salesman problems. *Journal of the ACM (JACM)*, 7(4), 326–329.
 10. **NITI Aayog & RMI. (2021).** *Fast Tracking Freight in India: A Roadmap for Clean and Cost-Effective Goods Transport*. Government of India.
+
+
+---
+
+## Author
+
+**Rohit K.**  
+*AI & Data Science Student*  
+GitHub: [@Rohitk69992](https://github.com/Rohitk69992)
