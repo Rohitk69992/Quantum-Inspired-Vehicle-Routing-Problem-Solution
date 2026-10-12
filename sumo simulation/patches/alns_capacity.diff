@@ -1,0 +1,47 @@
+--- backend/vrp/alns_vrp.py
++++ backend/vrp/alns_vrp.py
+@@ -160,9 +160,25 @@
+             return total
+ 
++        def is_feasible(routes: List[List[str]]) -> bool:
++            for v_idx, r in enumerate(routes):
++                load = sum(problem.customer_demands.get(c, 1.0) for c in r)
++                if load > vehicles[v_idx].capacity + 1e-6:
++                    return False
++            return True
++
+         def solution_cost(routes: List[List[str]]) -> float:
+-            return sum(route_cost(r) for r in routes)
++            base = sum(route_cost(r) for r in routes)
++            penalty = 0.0
++            for v_idx, r in enumerate(routes):
++                load = sum(problem.customer_demands.get(c, 1.0) for c in r)
++                cap = vehicles[v_idx].capacity
++                if load > cap:
++                    penalty += 50000.0 * (load - cap)
++            return base + penalty
+ 
+         # 2. Build Initial Feasible Multi-Vehicle Solution
+         current_routes = self._build_initial_solution(destinations, vehicles, problem, get_cost, rng)
+         current_cost = solution_cost(current_routes)
+ 
+         best_routes = [r[:] for r in current_routes]
+         best_cost = current_cost
++        best_feasible_routes = [r[:] for r in current_routes] if is_feasible(current_routes) else None
++        best_feasible_cost = current_cost if is_feasible(current_routes) else float("inf")
+@@ -241,6 +257,11 @@
++            if is_feasible(candidate_routes):
++                if candidate_cost < best_feasible_cost - 1e-4:
++                    best_feasible_routes = [r[:] for r in candidate_routes]
++                    best_feasible_cost = candidate_cost
++
+             d_scores[d_idx] += score_awarded
+             r_scores[r_idx] += score_awarded
+@@ -279,7 +300,8 @@
+         fleet_inputs: List[Tuple[VehicleConfig, List[str]]] = []
++        final_choice = best_feasible_routes if best_feasible_routes is not None else best_routes
+         for idx, v in enumerate(vehicles):
+-            cust_seq = best_routes[idx] if idx < len(best_routes) else []
++            cust_seq = final_choice[idx] if idx < len(final_choice) else []
+             full_seq = [origin] + cust_seq + [origin] if cust_seq else [origin, origin]
+             fleet_inputs.append((v, full_seq))

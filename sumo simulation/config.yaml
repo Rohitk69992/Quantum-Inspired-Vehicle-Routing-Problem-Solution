@@ -1,0 +1,161 @@
+# ==============================================================================
+# config.yaml - Central Configuration for IEEE T-ITS Reproducibility Pipeline
+# "A SUMO-Based Framework for Traffic-Aware Vehicle Routing"
+# Author: Rohit Korade (ISBM College of Engineering, Pune, India)
+# ==============================================================================
+
+project:
+  title: "A SUMO-Based Framework for Traffic-Aware Vehicle Routing With Quantum-Inspired and Classical Optimization"
+  author: "Rohit Korade"
+  affiliation: "Department of Artificial Intelligence and Data Science, ISBM College of Engineering, Pune, India"
+  email: "rohitkorade69@gmail.com"
+  venue: "IEEE Transactions on Intelligent Transportation Systems"
+  year: 2026
+
+paths:
+  network_file: "osm.net.xml.gz"
+  sumo_config: "osm.sumocfg"
+  results_raw_dir: "results/raw"
+  results_stats_dir: "results/statistics"
+  results_tables_dir: "results/tables"
+  results_figures_dir: "results/figures"
+  paper_dir: "research_paper"
+  paper_tables_dir: "research_paper/tables"
+  paper_figures_dir: "research_paper/figures"
+  macros_file: "research_paper/macros_generated.tex"
+  claims_file: "research_paper/claims_generated.tex"
+  tables_stub_file: "research_paper/tables_generated.tex"
+
+network:
+  city: "Pune, India"
+  total_nodes: 3559
+  total_edges: 8263
+  largest_scc_nodes: 3153
+  depot_node: "4342481629"
+  free_flow_weights:
+    alpha: 1.0
+    beta: 0.0
+    gamma: 0.0
+    incident_multiplier: 1.0
+
+instances:
+  suite:
+    - id: "pune_q3"
+      name: "Pune Q3 Quantum Tractable"
+      type: "quantum"
+      num_customers: 3
+      num_vehicles: 1
+      capacity: 100.0
+      binding: false
+    - id: "pune_q4"
+      name: "Pune Q4 Quantum Tractable"
+      type: "quantum"
+      num_customers: 4
+      num_vehicles: 1
+      capacity: 100.0
+      binding: false
+    - id: "pune_n5_v1_unconstrained"
+      name: "Level 1 Unconstrained Baseline"
+      type: "benchmark"
+      num_customers: 5
+      num_vehicles: 1
+      capacity: 100.0
+      binding: false
+    - id: "pune_n5_v2_binding"
+      name: "Level 1 Binding Capacity CVRP"
+      type: "benchmark"
+      num_customers: 5
+      num_vehicles: 2
+      capacity: 4.0
+      binding: true
+    - id: "pune_n8_v1_unconstrained"
+      name: "Level 1 Scale Unconstrained"
+      type: "benchmark"
+      num_customers: 8
+      num_vehicles: 1
+      capacity: 100.0
+      binding: false
+    - id: "pune_n8_v2_binding"
+      name: "Level 1 Scale Binding Capacity"
+      type: "benchmark"
+      num_customers: 8
+      num_vehicles: 2
+      capacity: 5.0
+      binding: true
+    - id: "pune_n10_v2_binding"
+      name: "Level 2 Combinatorial Binding CVRP"
+      type: "benchmark"
+      num_customers: 10
+      num_vehicles: 2
+      capacity: 6.0
+      binding: true
+    - id: "pune_n15_v3_binding"
+      name: "Level 2 Scaled Fleet 3-Vehicles"
+      type: "benchmark"
+      num_customers: 15
+      num_vehicles: 3
+      capacity: 6.0
+      binding: true
+    - id: "pune_n20_v4_binding"
+      name: "Level 2 Scaled Fleet 4-Vehicles"
+      type: "benchmark"
+      num_customers: 20
+      num_vehicles: 4
+      capacity: 6.0
+      binding: true
+
+benchmark:
+  seeds: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300]
+  evaluation_budget: 1000
+
+solvers:
+  exact_mip:
+    solver_name: "HiGHS"
+    implementation: "scipy.optimize.milp"
+    formulation: "Miller-Tucker-Zemlin (MTZ) Two-Index"
+    time_limit_s: 30.0
+  permutation_baseline:
+    exact_permutation_max_n: 7
+    heuristic_for_n_greater: "Nearest-Neighbor + 2-Opt + 50 Random Permutations"
+  alns:
+    max_evaluations: 1000
+    max_iterations: 100
+    cooling_rate: 0.97
+    decay_factor: 0.8
+    scores:
+      sigma_1: 33.0
+      sigma_2: 9.0
+      sigma_3: 13.0
+  hgs:
+    max_evaluations: 1000
+    population_size: 20
+    offspring_count: 15
+    max_generations: 50
+    penalty_capacity: 100.0
+  qpso:
+    max_evaluations: 1000
+    swarm_size: 25
+    max_iterations: 40
+    alpha_max: 1.0
+    alpha_min: 0.5
+  qaoa:
+    ansatz_depth: 1
+    optimizer: "COBYLA"
+    max_evals: 100
+    shots: 1024
+    penalty_multiplier: 2.0
+    simulation_backend: "Qiskit Statevector"
+
+dynamic_sumo:
+  simulation_steps: 160
+  incident_injection_step: 30
+  incident_edge: "246580191#8"
+  throttled_speed_ms: 0.7
+  free_flow_speed_ms: 13.89
+
+statistics:
+  alpha: 0.05
+  bootstrap_resamples: 2000
+  confidence_interval_pct: 95.0
+  wilcoxon_zero_method: "pratt"
+  fwer_correction: "holm"

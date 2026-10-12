@@ -1,0 +1,11 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Build logs
+build.log
+
+# Research paper directory (kept local / uncommitted)
+research_paper/

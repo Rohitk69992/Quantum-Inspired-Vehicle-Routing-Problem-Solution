@@ -1,0 +1,20 @@
+# Core Scientific and Optimization Stack
+numpy>=2.0.0
+scipy>=1.14.0
+networkx>=3.0
+matplotlib>=3.8.0
+pyyaml>=6.0.0
+
+# Quantum Computing Simulation
+qiskit>=2.0.0
+
+# Microscopic Traffic Simulation (Eclipse SUMO)
+# Note: Eclipse SUMO binaries and Python libraries (sumolib, traci)
+# should be installed and available in PYTHONPATH or site-packages.
+sumolib>=1.20.0
+traci>=1.20.0
+
+# Web & API Interface (Optional for background server)
+fastapi>=0.110.0
+uvicorn>=0.28.0
+websockets>=12.0
